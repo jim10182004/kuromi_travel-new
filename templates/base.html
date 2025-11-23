@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuromi Travel | 叛逆去旅行</title>
+    <meta name="description" content="庫洛米旅行社 – 叛逆風格的暗黑旅程，提供機票、訂房、團體行程等服務。">
+    <meta name="keywords" content="庫洛米, 旅行社, 暗黑旅遊, 叛逆旅遊, 哥德風, 龐克風, 自由行, 團體旅遊">
+    <meta property="og:title" content="Kuromi Travel | 叛逆去旅行">
+    <meta property="og:description" content="庫洛米旅行社 – 叛逆風格的暗黑旅程，提供機票、訂房、團體行程等服務。">
+    <meta property="og:image" content="{{ url_for('static', filename='images/og-image.jpg') }}">
+    <meta property="og:url" content="{{ request.url }}">
+    <meta property="og:type" content="website">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+    {% include 'components/navbar.html' %}
+
+    {% block content %}{% endblock %}
+
+    {% include 'components/modals.html' %}
+    {% include 'components/footer.html' %}
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top"
+        class="fixed bottom-8 right-8 bg-k-pink text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-k-purple z-50">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>
