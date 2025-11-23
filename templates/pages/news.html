@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="pt-24 pb-16 bg-[#111] min-h-screen">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-black text-white mb-6">最新 <span class="text-k-pink">消息</span></h1>
+            <p class="text-xl text-gray-400">掌握 Kuromi Travel 的最新動態與獨家優惠。</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- News Item 1 -->
+            <div
+                class="bg-[#222] rounded-xl overflow-hidden border border-gray-800 group hover:border-k-pink transition duration-300">
+                <div class="h-48 overflow-hidden">
+                    <img src="{{ url_for('static', filename='images/news_vampire_castle.svg') }}"
+                        class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-bold text-k-pink mb-2 block">2024/05/20</span>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-k-pink transition">全新航線：特蘭西瓦尼亞吸血鬼古堡
+                    </h3>
+                    <p class="text-gray-400 text-sm mb-4">準備好你的大蒜了嗎？我們即將開啟前往吸血鬼故鄉的神秘航線，入住千年古堡，體驗真正的哥德式浪漫。</p>
+                    <a href="{{ url_for('news_detail', news_id='vampire') }}"
+                        class="text-white text-sm font-bold hover:text-k-pink transition">閱讀更多 <i
+                            class="fa-solid fa-arrow-right ml-1"></i></a>
+                </div>
+            </div>
+
+            <!-- News Item 2 -->
+            <div
+                class="bg-[#222] rounded-xl overflow-hidden border border-gray-800 group hover:border-k-pink transition duration-300">
+                <div class="h-48 overflow-hidden">
+                    <img src="{{ url_for('static', filename='images/news_halloween_party.svg') }}"
+                        class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-bold text-k-pink mb-2 block">2024/10/31</span>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-k-pink transition">Kuromi 生日慶典：全館行程 85
+                        折</h3>
+                    <p class="text-gray-400 text-sm mb-4">為了慶祝我們最愛的 Kuromi 生日，萬聖節當天預訂任何行程，輸入折扣碼 "HBDKUROMI" 即享 85 折優惠！
+                    </p>
+                    <a href="{{ url_for('news_detail', news_id='halloween') }}"
+                        class="text-white text-sm font-bold hover:text-k-pink transition">閱讀更多 <i
+                            class="fa-solid fa-arrow-right ml-1"></i></a>
+                </div>
+            </div>
+
+            <!-- News Item 3 -->
+            <div
+                class="bg-[#222] rounded-xl overflow-hidden border border-gray-800 group hover:border-k-pink transition duration-300">
+                <div class="h-48 overflow-hidden">
+                    <img src="{{ url_for('static', filename='images/news_kuromi_melody_collab.svg') }}"
+                        class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-bold text-k-pink mb-2 block">2024/04/01</span>
+                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-k-pink transition">Kuromi x My Melody
+                        世紀大和解？</h3>
+                    <p class="text-gray-400 text-sm mb-4">愚人節限定！我們推出了「粉紅與黑色的碰撞」雙人行程，帶上你最好的朋友（或死對頭）一起出發吧！</p>
+                    <a href="{{ url_for('news_detail', news_id='collab') }}"
+                        class="text-white text-sm font-bold hover:text-k-pink transition">閱讀更多 <i
+                            class="fa-solid fa-arrow-right ml-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

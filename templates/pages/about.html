@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="pt-24 pb-16 bg-[#111] min-h-screen">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-5xl font-black text-white mb-6">關於 <span class="text-k-pink">KUROMI
+                        TRAVEL</span></h1>
+                <p class="text-xl text-gray-400">叛逆靈魂的專屬旅程，探索世界的黑暗與美麗。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+                <div>
+                    <img src="{{ url_for('static', filename='images/about_kuromi.png') }}"
+                        class="rounded-2xl shadow-2xl shadow-k-pink/20 border border-gray-800 transform -rotate-3 hover:rotate-0 transition duration-500">
+                </div>
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold text-white">我們不只是旅行社</h2>
+                    <p class="text-gray-300 leading-relaxed">
+                        在這個充滿糖果色與虛偽笑容的世界裡，Kuromi Travel 誕生了。我們厭倦了千篇一律的觀光行程，厭倦了那些為了拍照而存在的景點。
+                    </p>
+                    <p class="text-gray-300 leading-relaxed">
+                        我們相信，旅行應該是一場對靈魂的拷問，一次對未知的挑釁。我們的創始人——一位熱愛黑色蕾絲與重金屬搖滾的叛逆少女，決定打破常規，為那些渴望與眾不同的人打造專屬的旅程。
+                    </p>
+                    <div class="flex items-center space-x-4 pt-4">
+                        <div class="w-12 h-12 bg-[#222] rounded-full flex items-center justify-center text-k-pink">
+                            <i class="fa-solid fa-skull text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">打破常規</h4>
+                            <p class="text-sm text-gray-500">拒絕平庸，擁抱獨特</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-[#222] rounded-3xl p-12 border border-gray-800 text-center relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-k-purple via-k-pink to-k-purple">
+                </div>
+                <i class="fa-solid fa-quote-left text-6xl text-[#333] absolute top-8 left-8"></i>
+                <h3 class="text-2xl md:text-3xl font-bold text-white mb-8 relative z-10">
+                    "誰說可愛就不能帥氣？誰說旅行一定要陽光普照？<br>跟著我，一起去探索那些隱藏在陰影中的絕美風景吧！"</h3>
+                <p class="text-k-pink font-bold text-xl relative z-10">- Kuromi 首席執行官</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

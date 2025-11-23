@@ -1,0 +1,258 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="pt-24 pb-16 bg-[#111] min-h-screen">
+    <div class="container mx-auto px-4">
+        <!-- Hero Section -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-black text-white mb-6">尋找 <span class="text-k-pink">航班</span></h1>
+            <p class="text-xl text-gray-400">飛往世界的盡頭，探索未知的黑暗領域。</p>
+        </div>
+
+        <!-- Search Form -->
+        <div
+            class="bg-[#222] p-8 rounded-2xl border border-gray-800 shadow-2xl shadow-k-pink/10 mb-12 max-w-4xl mx-auto">
+            <form id="flight-search-form" class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="md:col-span-1">
+                    <label class="block text-gray-400 text-sm mb-2">出發地</label>
+                    <div class="relative">
+                        <i class="fa-solid fa-plane-departure absolute left-4 top-3.5 text-gray-500"></i>
+                        <input type="text" value="TPE 台北"
+                            class="w-full bg-[#333] border border-gray-700 rounded-lg pl-10 pr-4 py-3 text-white focus:border-k-pink focus:outline-none transition"
+                            readonly>
+                    </div>
+                </div>
+                <div class="md:col-span-1">
+                    <label class="block text-gray-400 text-sm mb-2">目的地</label>
+                    <div class="relative">
+                        <i class="fa-solid fa-plane-arrival absolute left-4 top-3.5 text-gray-500"></i>
+                        <select
+                            class="w-full bg-[#333] border border-gray-700 rounded-lg pl-10 pr-4 py-3 text-white focus:border-k-pink focus:outline-none transition appearance-none">
+                            <option>TYO 東京</option>
+                            <option>OSA 大阪</option>
+                            <option>SEL 首爾</option>
+                            <option>BKK 曼谷</option>
+                            <option>LON 倫敦</option>
+                            <option>PAR 巴黎</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="md:col-span-1">
+                    <label class="block text-gray-400 text-sm mb-2">出發日期</label>
+                    <div class="relative">
+                        <i class="fa-solid fa-calendar absolute left-4 top-3.5 text-gray-500"></i>
+                        <input type="date"
+                            class="w-full bg-[#333] border border-gray-700 rounded-lg pl-10 pr-4 py-3 text-white focus:border-k-pink focus:outline-none transition">
+                    </div>
+                </div>
+                <div class="md:col-span-1 flex items-end">
+                    <button type="button" id="flight-search-btn"
+                        class="w-full bg-k-pink text-white font-bold py-3 rounded-lg hover:bg-opacity-90 transition shadow-lg shadow-k-pink/30">
+                        <i class="fa-solid fa-search mr-2"></i> 搜尋航班
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Results Section (Hidden by default) -->
+        <div id="flight-results" class="hidden max-w-4xl mx-auto space-y-6">
+            <h2 class="text-2xl font-bold text-white mb-6">搜尋結果</h2>
+
+            <!-- Result Item 1 -->
+            <div
+                class="bg-[#222] rounded-xl p-6 border border-gray-800 hover:border-k-pink transition group relative overflow-hidden">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="flex items-center space-x-6 mb-4 md:mb-0">
+                        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center p-2">
+                            <img src="{{ url_for('static', filename='images/eva_air.png') }}" class="w-full h-auto">
+                        </div>
+                        <div>
+                            <div class="flex items-center space-x-4 text-white text-lg font-bold">
+                                <span>09:00 TPE</span>
+                                <i class="fa-solid fa-arrow-right text-gray-500 text-sm"></i>
+                                <span>13:15 TYO</span>
+                            </div>
+                            <div class="text-gray-500 text-sm mt-1">長榮航空 BR198 | 直飛 | 3h 15m</div>
+                        </div>
+                    </div>
+                    <div class="text-center md:text-right">
+                        <div class="text-2xl font-black text-k-pink mb-2">NT$ 12,500</div>
+                        <button onclick="selectFlight(this)"
+                            class="px-6 py-2 bg-[#333] text-white rounded-full font-bold hover:bg-k-pink transition">選擇</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Result Item 2 -->
+            <div
+                class="bg-[#222] rounded-xl p-6 border border-gray-800 hover:border-k-pink transition group relative overflow-hidden">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="flex items-center space-x-6 mb-4 md:mb-0">
+                        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center p-2">
+                            <img src="{{ url_for('static', filename='images/china_airlines.png') }}"
+                                class="w-full h-auto">
+                        </div>
+                        <div>
+                            <div class="flex items-center space-x-4 text-white text-lg font-bold">
+                                <span>14:30 TPE</span>
+                                <i class="fa-solid fa-arrow-right text-gray-500 text-sm"></i>
+                                <span>18:45 TYO</span>
+                            </div>
+                            <div class="text-gray-500 text-sm mt-1">中華航空 CI104 | 直飛 | 3h 15m</div>
+                        </div>
+                    </div>
+                    <div class="text-center md:text-right">
+                        <div class="text-2xl font-black text-k-pink mb-2">NT$ 11,800</div>
+                        <button onclick="selectFlight(this)"
+                            class="px-6 py-2 bg-[#333] text-white rounded-full font-bold hover:bg-k-pink transition">選擇</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Result Item 3 -->
+            <div
+                class="bg-[#222] rounded-xl p-6 border border-gray-800 hover:border-k-pink transition group relative overflow-hidden">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="flex items-center space-x-6 mb-4 md:mb-0">
+                        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center p-2">
+                            <img src="{{ url_for('static', filename='images/starlux.png') }}" class="w-full h-auto">
+                        </div>
+                        <div>
+                            <div class="flex items-center space-x-4 text-white text-lg font-bold">
+                                <span>08:10 TPE</span>
+                                <i class="fa-solid fa-arrow-right text-gray-500 text-sm"></i>
+                                <span>12:30 TYO</span>
+                            </div>
+                            <div class="text-gray-500 text-sm mt-1">星宇航空 JX800 | 直飛 | 3h 20m</div>
+                        </div>
+                    </div>
+                    <div class="text-center md:text-right">
+                        <div class="text-2xl font-black text-k-pink mb-2">NT$ 13,200</div>
+                        <button onclick="selectFlight(this)"
+                            class="px-6 py-2 bg-[#333] text-white rounded-full font-bold hover:bg-k-pink transition">選擇</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Booking Form (Hidden by default) -->
+        <div id="flight-booking"
+            class="hidden max-w-2xl mx-auto mt-12 bg-[#222] p-8 rounded-2xl border border-gray-800">
+            <h2 class="text-2xl font-bold text-white mb-6">填寫預訂資料</h2>
+            <form onsubmit="event.preventDefault(); completeBooking();">
+                <div class="space-y-4 mb-6">
+                    <div>
+                        <label class="block text-gray-400 text-sm mb-2">旅客姓名 (英文)</label>
+                        <input type="text"
+                            class="w-full bg-[#333] border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-k-pink focus:outline-none transition"
+                            placeholder="KUROMI SAMA" required>
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 text-sm mb-2">護照號碼</label>
+                        <input type="text"
+                            class="w-full bg-[#333] border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-k-pink focus:outline-none transition"
+                            required>
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 text-sm mb-2">聯絡電話</label>
+                        <input type="tel"
+                            class="w-full bg-[#333] border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-k-pink focus:outline-none transition"
+                            required>
+                    </div>
+                </div>
+                <button type="submit"
+                    class="w-full bg-k-pink text-white font-bold py-4 rounded-lg hover:bg-opacity-90 transition shadow-lg shadow-k-pink/30">
+                    確認付款
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Make functions global so they can be called if needed
+    window.searchFlights = function () {
+        console.log('searchFlights called');
+        const btn = document.getElementById('flight-search-btn');
+        if (!btn) {
+            console.error('Search button not found');
+            return;
+        }
+
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin mr-2"></i> 搜尋中...';
+        btn.disabled = true;
+
+        setTimeout(() => {
+            const results = document.getElementById('flight-results');
+            if (results) {
+                // Get selected destination
+                const destSelect = document.querySelector('select');
+                const destValue = destSelect.value.split(' ')[0]; // e.g., "TYO"
+
+                // Update all result items
+                const resultItems = results.querySelectorAll('.group');
+                resultItems.forEach(item => {
+                    // Update destination code
+                    const routeText = item.querySelector('.text-lg.font-bold');
+                    if (routeText) {
+                        const spans = routeText.querySelectorAll('span');
+                        if (spans.length >= 2) {
+                            spans[1].innerText = `13:15 ${destValue}`; // Update arrival time/code
+                        }
+                    }
+                });
+
+                results.classList.remove('hidden');
+                // Scroll to results
+                results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                console.error('Results element not found');
+            }
+
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        }, 1000);
+    };
+
+    window.selectFlight = function (btn) {
+        // Reset other buttons
+        document.querySelectorAll('#flight-results button').forEach(b => {
+            b.innerText = '選擇';
+            b.classList.remove('bg-k-pink');
+            b.classList.add('bg-[#333]');
+        });
+
+        // Highlight selected
+        btn.innerText = '已選擇';
+        btn.classList.remove('bg-[#333]');
+        btn.classList.add('bg-k-pink');
+
+        // Show booking form
+        const bookingForm = document.getElementById('flight-booking');
+        if (bookingForm) {
+            bookingForm.classList.remove('hidden');
+            bookingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
+    window.completeBooking = function () {
+        alert('預訂成功！感謝您的支持，Kuromi 期待與您相見！');
+        window.location.href = '/';
+    };
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const btn = document.getElementById('flight-search-btn');
+        if (btn) {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent any form submission
+                window.searchFlights();
+            });
+        } else {
+            console.error('Flight search button not found on load');
+        }
+    });
+</script>
+{% endblock %}

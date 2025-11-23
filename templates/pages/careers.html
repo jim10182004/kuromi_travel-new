@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="pt-24 pb-16 bg-[#111] min-h-screen">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-black text-white mb-6">加入 <span class="text-k-pink">庫洛米軍團</span></h1>
+            <p class="text-xl text-gray-400">尋找同樣擁有叛逆靈魂的你，一起顛覆旅遊業。</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-[#222] rounded-2xl p-8 mb-12 border border-gray-800">
+                <h2 class="text-2xl font-bold text-white mb-6"><i class="fa-solid fa-heart text-k-pink mr-2"></i>
+                    我們在找什麼樣的人？</h2>
+                <ul class="space-y-4 text-gray-300">
+                    <li class="flex items-start">
+                        <i class="fa-solid fa-check text-k-pink mt-1 mr-3"></i>
+                        <span>熱愛黑色，衣櫃裡 90% 的衣服都是黑色的。</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fa-solid fa-check text-k-pink mt-1 mr-3"></i>
+                        <span>有點小調皮，喜歡在平凡的生活中製造驚喜（或驚嚇）。</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fa-solid fa-check text-k-pink mt-1 mr-3"></i>
+                        <span>對世界充滿好奇，敢於探索那些旅遊書上不會寫的地方。</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fa-solid fa-check text-k-pink mt-1 mr-3"></i>
+                        <span>能夠忍受辦公室裡整天播放搖滾樂。</span>
+                    </li>
+                </ul>
+            </div>
+
+            <h2 class="text-3xl font-bold text-white mb-8 text-center">開放職缺</h2>
+            <div class="space-y-6">
+                <!-- Job 1 -->
+                <div class="bg-[#222] rounded-xl p-6 border border-gray-800 hover:border-k-pink transition group">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white group-hover:text-k-pink transition">暗黑行程規劃師</h3>
+                            <span class="text-sm text-gray-500">全職 | 台北總部</span>
+                        </div>
+                        <a href="{{ url_for('job_detail', job_id='planner') }}"
+                            class="mt-4 md:mt-0 px-6 py-2 bg-k-pink text-white rounded-full font-bold hover:bg-opacity-80 transition">立即應徵</a>
+                    </div>
+                    <p class="text-gray-400 text-sm">負責開發全球各地的獨特行程，從廢墟探險到地下音樂祭，你需要有超乎常人的想像力。</p>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="bg-[#222] rounded-xl p-6 border border-gray-800 hover:border-k-pink transition group">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white group-hover:text-k-pink transition">社群搞怪小編</h3>
+                            <span class="text-sm text-gray-500">全職 | 遠端工作</span>
+                        </div>
+                        <a href="{{ url_for('job_detail', job_id='social') }}"
+                            class="mt-4 md:mt-0 px-6 py-2 bg-k-pink text-white rounded-full font-bold hover:bg-opacity-80 transition">立即應徵</a>
+                    </div>
+                    <p class="text-gray-400 text-sm">管理 Kuromi Travel 的社群媒體，用最辛辣、最幽默的文字與粉絲互動，製造話題。</p>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="bg-[#222] rounded-xl p-6 border border-gray-800 hover:border-k-pink transition group">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white group-hover:text-k-pink transition">首席試睡員</h3>
+                            <span class="text-sm text-gray-500">兼職 | 全球各地</span>
+                        </div>
+                        <a href="{{ url_for('job_detail', job_id='sleeper') }}"
+                            class="mt-4 md:mt-0 px-6 py-2 bg-k-pink text-white rounded-full font-bold hover:bg-opacity-80 transition">立即應徵</a>
+                    </div>
+                    <p class="text-gray-400 text-sm">這可能是世界上最棒的工作。你需要入住我們精選的特色旅宿，並撰寫真實（且挑剔）的體驗報告。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,235 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="pt-24 pb-16 bg-[#111] min-h-screen">
+    <div class="container mx-auto px-4">
+        <!-- Hero Section -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-black text-white mb-6">尋找 <span class="text-k-pink">飯店</span></h1>
+            <p class="text-xl text-gray-400">入住充滿個性的暗黑旅宿，享受不一樣的夜晚。</p>
+        </div>
+
+        <!-- Search Form -->
+        <div
+            class="bg-[#222] p-8 rounded-2xl border border-gray-800 shadow-2xl shadow-k-pink/10 mb-12 max-w-4xl mx-auto">
+            <form id="hotel-search-form" class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="md:col-span-1">
+                    <label class="block text-gray-400 text-sm mb-2">目的地</label>
+                    <div class="relative">
+                        <i class="fa-solid fa-location-dot absolute left-4 top-3.5 text-gray-500"></i>
+                        <select id="hotel-destination"
+                            class="w-full bg-[#333] border border-gray-700 rounded-lg pl-10 pr-4 py-3 text-white focus:border-k-pink focus:outline-none transition appearance-none">
+                            <option value="TYO 東京">TYO 東京</option>
+                            <option value="OSA 大阪">OSA 大阪</option>
+                            <option value="SEL 首爾">SEL 首爾</option>
+                            <option value="BKK 曼谷">BKK 曼谷</option>
+                            <option value="LON 倫敦">LON 倫敦</option>
+                            <option value="PAR 巴黎">PAR 巴黎</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="md:col-span-1">
+                    <label class="block text-gray-400 text-sm mb-2">入住日期</label>
+                    <div class="relative">
+                        <i class="fa-solid fa-calendar absolute left-4 top-3.5 text-gray-500"></i>
+                        <input type="date"
+                            class="w-full bg-[#333] border border-gray-700 rounded-lg pl-10 pr-4 py-3 text-white focus:border-k-pink focus:outline-none transition">
+                    </div>
+                </div>
+                <div class="md:col-span-1">
+                    <label class="block text-gray-400 text-sm mb-2">退房日期</label>
+                    <div class="relative">
+                        <i class="fa-solid fa-calendar absolute left-4 top-3.5 text-gray-500"></i>
+                        <input type="date"
+                            class="w-full bg-[#333] border border-gray-700 rounded-lg pl-10 pr-4 py-3 text-white focus:border-k-pink focus:outline-none transition">
+                    </div>
+                </div>
+                <div class="md:col-span-1 flex items-end">
+                    <button type="button" id="hotel-search-btn"
+                        class="w-full bg-k-pink text-white font-bold py-3 rounded-lg hover:bg-opacity-90 transition shadow-lg shadow-k-pink/30">
+                        <i class="fa-solid fa-search mr-2"></i> 搜尋飯店
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Results Section (Hidden by default) -->
+        <div id="hotel-results" class="hidden grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <!-- Result Item 1 -->
+            <div
+                class="bg-[#222] rounded-xl overflow-hidden border border-gray-800 hover:border-k-pink transition group">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+                        class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute top-4 right-4 bg-k-pink text-white text-xs font-bold px-2 py-1 rounded">9.2 超讚
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-2">東京暗黑王子大飯店</h3>
+                    <p class="text-gray-400 text-sm mb-4"><i class="fa-solid fa-map-marker-alt mr-1"></i> 新宿區, 東京</p>
+                    <div class="flex items-end justify-between">
+                        <div>
+                            <span class="text-gray-500 text-xs line-through">NT$ 8,000</span>
+                            <div class="text-2xl font-black text-k-pink">NT$ 5,600</div>
+                            <span class="text-gray-500 text-xs">每晚含稅</span>
+                        </div>
+                        <button onclick="selectHotel(this)"
+                            class="px-4 py-2 bg-[#333] text-white rounded-lg font-bold hover:bg-k-pink transition text-sm">選擇房型</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Result Item 2 -->
+            <div
+                class="bg-[#222] rounded-xl overflow-hidden border border-gray-800 hover:border-k-pink transition group">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80"
+                        class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute top-4 right-4 bg-k-pink text-white text-xs font-bold px-2 py-1 rounded">8.8 很棒
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-2">哥德式皇家酒店</h3>
+                    <p class="text-gray-400 text-sm mb-4"><i class="fa-solid fa-map-marker-alt mr-1"></i> 澀谷區, 東京</p>
+                    <div class="flex items-end justify-between">
+                        <div>
+                            <span class="text-gray-500 text-xs line-through">NT$ 6,500</span>
+                            <div class="text-2xl font-black text-k-pink">NT$ 4,200</div>
+                            <span class="text-gray-500 text-xs">每晚含稅</span>
+                        </div>
+                        <button onclick="selectHotel(this)"
+                            class="px-4 py-2 bg-[#333] text-white rounded-lg font-bold hover:bg-k-pink transition text-sm">選擇房型</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Result Item 3 -->
+            <div
+                class="bg-[#222] rounded-xl overflow-hidden border border-gray-800 hover:border-k-pink transition group">
+                <div class="h-48 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=1074&q=80"
+                        class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute top-4 right-4 bg-k-pink text-white text-xs font-bold px-2 py-1 rounded">9.5 完美
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-2">骷髏精品旅店</h3>
+                    <p class="text-gray-400 text-sm mb-4"><i class="fa-solid fa-map-marker-alt mr-1"></i> 六本木, 東京</p>
+                    <div class="flex items-end justify-between">
+                        <div>
+                            <span class="text-gray-500 text-xs line-through">NT$ 12,000</span>
+                            <div class="text-2xl font-black text-k-pink">NT$ 9,800</div>
+                            <span class="text-gray-500 text-xs">每晚含稅</span>
+                        </div>
+                        <button onclick="selectHotel(this)"
+                            class="px-4 py-2 bg-[#333] text-white rounded-lg font-bold hover:bg-k-pink transition text-sm">選擇房型</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Booking Form (Hidden by default) -->
+        <div id="hotel-booking" class="hidden max-w-2xl mx-auto mt-12 bg-[#222] p-8 rounded-2xl border border-gray-800">
+            <h2 class="text-2xl font-bold text-white mb-6">填寫訂房資料</h2>
+            <form onsubmit="event.preventDefault(); completeBooking();">
+                <div class="space-y-4 mb-6">
+                    <div>
+                        <label class="block text-gray-400 text-sm mb-2">入住人姓名</label>
+                        <input type="text"
+                            class="w-full bg-[#333] border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-k-pink focus:outline-none transition"
+                            placeholder="KUROMI SAMA" required>
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 text-sm mb-2">Email</label>
+                        <input type="email"
+                            class="w-full bg-[#333] border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-k-pink focus:outline-none transition"
+                            required>
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 text-sm mb-2">特殊需求</label>
+                        <textarea
+                            class="w-full bg-[#333] border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-k-pink focus:outline-none transition"
+                            placeholder="例如：高樓層、禁菸房"></textarea>
+                    </div>
+                </div>
+                <button type="submit"
+                    class="w-full bg-k-pink text-white font-bold py-4 rounded-lg hover:bg-opacity-90 transition shadow-lg shadow-k-pink/30">
+                    確認付款
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    window.searchHotels = function () {
+        console.log('searchHotels called');
+        const btn = document.getElementById('hotel-search-btn');
+        if (!btn) {
+            console.error('Search button not found');
+            return;
+        }
+
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin mr-2"></i> 搜尋中...';
+        btn.disabled = true;
+
+        setTimeout(() => {
+            const results = document.getElementById('hotel-results');
+            if (results) {
+                // Get destination input
+                const destInput = document.querySelector('input[placeholder="例如：東京"]');
+                const destValue = destInput ? destInput.value : '東京';
+
+                // Update result items
+                const resultItems = results.querySelectorAll('.group');
+                const hotelNames = ['暗黑王子大飯店', '哥德式皇家酒店', '骷髏精品旅店'];
+
+                resultItems.forEach((item, index) => {
+                    // Update Hotel Name
+                    const title = item.querySelector('h3');
+                    if (title) {
+                        title.innerText = `${destValue}${hotelNames[index]}`;
+                    }
+
+                    // Update Location
+                    const location = item.querySelector('p.text-gray-400');
+                    if (location) {
+                        location.innerHTML = `<i class="fa-solid fa-map-marker-alt mr-1"></i> 市中心, ${destValue}`;
+                    }
+                });
+
+                results.classList.remove('hidden');
+                results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        }, 1000);
+    };
+
+    window.selectHotel = function (btn) {
+        const bookingForm = document.getElementById('hotel-booking');
+        if (bookingForm) {
+            bookingForm.classList.remove('hidden');
+            bookingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
+    window.completeBooking = function () {
+        alert('訂房成功！祝您有個美好的夜晚！');
+        window.location.href = '/';
+    };
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const btn = document.getElementById('hotel-search-btn');
+        if (btn) {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.searchHotels();
+            });
+        }
+    });
+</script>
+{% endblock %}

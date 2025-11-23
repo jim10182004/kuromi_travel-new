@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="pt-24 pb-16 bg-[#111] min-h-screen">
+    <div class="container mx-auto px-4 max-w-4xl">
+        <div class="mb-8">
+            <a href="{{ url_for('news') }}" class="text-gray-400 hover:text-white transition">
+                <i class="fa-solid fa-arrow-left mr-2"></i> 返回最新消息
+            </a>
+        </div>
+
+        <article class="bg-[#222] rounded-2xl overflow-hidden border border-gray-800">
+            <div class="h-[400px] w-full relative">
+                <img src="{{ url_for('static', filename=news.image) }}" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#222] to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-8">
+                    <span class="bg-k-pink text-white px-3 py-1 rounded text-sm font-bold mb-4 inline-block">{{
+                        news.date }}</span>
+                    <h1 class="text-3xl md:text-5xl font-bold text-white drop-shadow-lg">{{ news.title }}</h1>
+                </div>
+            </div>
+
+            <div class="p-8 md:p-12">
+                <div class="prose prose-invert max-w-none">
+                    <p class="text-xl text-gray-300 leading-relaxed mb-8 font-medium border-l-4 border-k-pink pl-6">
+                        {{ news.summary }}
+                    </p>
+
+                    <div class="text-gray-400 space-y-6 leading-relaxed">
+                        {{ news.content | safe }}
+                    </div>
+                </div>
+
+                <div class="mt-12 pt-8 border-t border-gray-700 flex justify-between items-center">
+                    <div class="text-gray-500 text-sm">
+                        分享此文章：
+                        <a href="#" class="text-gray-400 hover:text-white ml-2"><i
+                                class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white ml-2"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white ml-2"><i class="fa-brands fa-line"></i></a>
+                    </div>
+                    <a href="{{ url_for('home') }}" class="text-k-pink font-bold hover:underline">
+                        查看相關行程 <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
+{% endblock %}

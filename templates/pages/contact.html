@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="pt-24 pb-16 bg-[#111] min-h-screen">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-black text-white mb-6">聯絡 <span class="text-k-pink">我們</span></h1>
+            <p class="text-xl text-gray-400">有話快說，有屁快放（開玩笑的，我們很樂意聽你說）。</p>
+        </div>
+
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Contact Info -->
+            <div class="space-y-8">
+                <div class="bg-[#222] p-8 rounded-2xl border border-gray-800">
+                    <h3 class="text-2xl font-bold text-white mb-6">聯絡資訊</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div
+                                class="w-10 h-10 bg-[#333] rounded-full flex items-center justify-center text-k-pink mr-4 flex-shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">總部地址</h4>
+                                <p class="text-gray-400">台北市信義區松壽路 666 號<br>（請尋找那個看起來最像鬼屋的大樓）</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div
+                                class="w-10 h-10 bg-[#333] rounded-full flex items-center justify-center text-k-pink mr-4 flex-shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">電話</h4>
+                                <p class="text-gray-400">+886 2 6666 9999<br>（服務時間：太陽下山後至日出前）</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div
+                                class="w-10 h-10 bg-[#333] rounded-full flex items-center justify-center text-k-pink mr-4 flex-shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">Email</h4>
+                                <p class="text-gray-400">skull@kuromitravel.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[#222] p-8 rounded-2xl border border-gray-800 text-center">
+                    <h3 class="text-xl font-bold text-white mb-4">追蹤我們</h3>
+                    <div class="flex justify-center space-x-4">
+                        <a href="#"
+                            class="w-12 h-12 rounded-full bg-[#333] flex items-center justify-center text-gray-400 hover:bg-k-pink hover:text-white transition transform hover:scale-110"><i
+                                class="fa-brands fa-facebook-f text-xl"></i></a>
+                        <a href="#"
+                            class="w-12 h-12 rounded-full bg-[#333] flex items-center justify-center text-gray-400 hover:bg-k-pink hover:text-white transition transform hover:scale-110"><i
+                                class="fa-brands fa-instagram text-xl"></i></a>
+                        <a href="#"
+                            class="w-12 h-12 rounded-full bg-[#333] flex items-center justify-center text-gray-400 hover:bg-k-pink hover:text-white transition transform hover:scale-110"><i
+                                class="fa-brands fa-tiktok text-xl"></i></a>
+                        <a href="#"
+                            class="w-12 h-12 rounded-full bg-[#333] flex items-center justify-center text-gray-400 hover:bg-k-pink hover:text-white transition transform hover:scale-110"><i
+                                class="fa-brands fa-twitter text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="bg-[#222] p-8 rounded-2xl border border-gray-800">
+                <h3 class="text-2xl font-bold text-white mb-6">傳送訊息</h3>
+                <form class="space-y-4">
+                    <div>
+                        <label class="block text-gray-400 text-sm mb-2">你的大名</label>
+                        <input type="text"
+                            class="w-full bg-[#333] border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-k-pink focus:outline-none transition"
+                            placeholder="例如：庫洛米大人">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 text-sm mb-2">Email</label>
+                        <input type="email"
+                            class="w-full bg-[#333] border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-k-pink focus:outline-none transition"
+                            placeholder="example@email.com">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 text-sm mb-2">主旨</label>
+                        <select
+                            class="w-full bg-[#333] border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-k-pink focus:outline-none transition">
+                            <option>我想預訂行程</option>
+                            <option>我有問題想問</option>
+                            <option>我想加入庫洛米軍團</option>
+                            <option>純粹想告白</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 text-sm mb-2">訊息內容</label>
+                        <textarea
+                            class="w-full bg-[#333] border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-k-pink focus:outline-none transition h-32"
+                            placeholder="請在此輸入你的訊息..."></textarea>
+                    </div>
+                    <button type="button"
+                        class="w-full bg-k-pink text-white font-bold py-4 rounded-lg hover:bg-opacity-90 transition shadow-lg shadow-k-pink/30">發送訊息</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
