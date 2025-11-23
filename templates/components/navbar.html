@@ -1,0 +1,50 @@
+<nav class="sticky top-0 z-50 bg-[#151515] border-b border-[#3E204F] shadow-lg">
+    <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2 cursor-pointer" onclick="router('home')">
+            <div
+                class="w-10 h-10 bg-k-pink rounded-full flex items-center justify-center text-white text-xl font-bold border-2 border-white">
+                <i class="fa-solid fa-skull"></i>
+            </div>
+            <span class="text-2xl font-black tracking-tighter italic text-white">KUROMI<span
+                    class="text-k-pink">TRAVEL</span></span>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+            <!-- Links removed as per request -->
+        </div>
+
+        <!-- User Actions -->
+        <div class="flex items-center space-x-4">
+            <button class="text-gray-400 hover:text-white"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="text-gray-400 hover:text-white relative" onclick="router('favorites')">
+                <i class="fa-solid fa-heart"></i>
+                <span id="favorites-counter"
+                    class="absolute -top-2 -right-2 w-4 h-4 bg-k-pink rounded-full text-[10px] flex items-center justify-center text-white hidden">0</span>
+            </button>
+            <button class="text-gray-400 hover:text-white relative" onclick="router('checkout')">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-badge"
+                    class="absolute -top-2 -right-2 w-4 h-4 bg-k-pink rounded-full text-[10px] flex items-center justify-center text-white hidden">0</span>
+            </button>
+            <button onclick="router('login')"
+                class="hidden md:block border border-[#9B72AA] text-[#9B72AA] px-4 py-1 rounded hover:bg-[#9B72AA] hover:text-white transition text-sm font-bold">
+                登入/註冊
+            </button>
+            <!-- Mobile Menu Btn -->
+            <button class="md:hidden text-white text-xl" onclick="toggleMobileMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu"
+    class="fixed inset-0 bg-[#151515] z-40 hidden flex-col pt-24 px-8 space-y-8 transition-opacity duration-300">
+    <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-2xl">
+        <i class="fa-solid fa-times"></i>
+    </button>
+    <!-- Links removed as per request -->
+</div>
