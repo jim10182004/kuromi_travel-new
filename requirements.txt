@@ -239,3 +239,4 @@ wsproto==1.2.0
 yarl==1.18.3
 yfinance==0.1.54
 zstandard @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_054juzz3it/croot/zstandard_1714677666952/work
+gunicorn
