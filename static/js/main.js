@@ -28,17 +28,17 @@ const oracleQuestions = [
 
 const oracleResults = {
     goth: {
-        destinations: ['paris', 'london', 'kyoto'],
+        destinations: ['paris_gothic', 'prague_vampire', 'mexico_dead'],
         title: "歌德暗黑系",
         desc: "你的靈魂渴望神秘與歷史，適合探索古老的建築與傳說。"
     },
     punk: {
-        destinations: ['tokyo', 'berlin', 'nyc'],
+        destinations: ['tokyo_neon', 'berlin_techno', 'nyc_underground'],
         title: "龐克叛逆系",
         desc: "你充滿街頭能量，需要音樂、塗鴉與地下文化的洗禮。"
     },
     party: {
-        destinations: ['bangkok', 'seoul', 'taipei'],
+        destinations: ['bangkok_midnight', 'rio_carnival', 'seoul_underground'],
         title: "夜生活狂歡系",
         desc: "你是夜的王者，霓虹燈與派對是你的歸屬。"
     }
