@@ -1,0 +1,1239 @@
+{
+    "tokyo_neon": {
+        "id": "tokyo_neon",
+        "title": "東京賽博龐克霓虹夜｜6日",
+        "price": "$45,000",
+        "originalPrice": "$52,000",
+        "image": "/static/images/itineraries/tokyo_neon_main.jpg",
+        "tags": [
+            "東京進出",
+            "賽博龐克",
+            "夜生活"
+        ],
+        "dates": [
+            "2024/06/15",
+            "2024/07/20",
+            "2024/08/25"
+        ],
+        "description": "探索東京未來科技與傳統文化的衝突美學",
+        "days": [
+            {
+                "day": 1,
+                "title": "抵達成田機場",
+                "desc": "專車接送至澀谷設計旅店，夜遊新宿歌舞伎町霓虹街。",
+                "stay": "Shibuya Design Hotel"
+            },
+            {
+                "day": 2,
+                "title": "秋葉原電子聖地",
+                "desc": "深入秋葉原電子街區，探訪Maid咖啡廳與地下街。",
+                "images": [
+                    "/static/images/itineraries/tokyo_neon_day2_0.jpg",
+                    "/static/images/itineraries/tokyo_neon_day2_1.jpg"
+                ]
+            },
+            {
+                "day": 3,
+                "title": "哈拉原龐克時尚",
+                "desc": "原宿竹下通與表參道，體驗日本青年叛逆文化。",
+                "images": [
+                    "/static/images/itineraries/tokyo_neon_day3_0.jpg",
+                    "/static/images/itineraries/tokyo_neon_day3_1.jpg"
+                ]
+            },
+            {
+                "day": 4,
+                "title": "銀座地下酒吧巡禮",
+                "desc": "探訪隱密的銀座地下威士忌酒吧與爵士樂俱樂部。",
+                "stay": "Ginza Boutique Hotel"
+            },
+            {
+                "day": 5,
+                "title": "六本木藝術三角",
+                "desc": "森美術館、國立新美術館，感受當代藝術脈動。",
+                "images": [
+                    "/static/images/itineraries/tokyo_neon_day5_0.jpg"
+                ]
+            },
+            {
+                "day": 6,
+                "title": "離境",
+                "desc": "自由活動後送機",
+                "stay": null
+            }
+        ]
+    },
+    "seoul_underground": {
+        "id": "seoul_underground",
+        "title": "首爾弘大暗黑時尚｜5日",
+        "price": "$32,000",
+        "originalPrice": "$38,000",
+        "image": "/static/images/itineraries/seoul_underground_main.jpg",
+        "tags": [
+            "首爾進出",
+            "暗黑哥德",
+            "K-Fashion"
+        ],
+        "dates": [
+            "2024/06/10",
+            "2024/07/15",
+            "2024/09/05"
+        ],
+        "description": "首爾地下文化與新世代時尚的完美結合",
+        "days": [
+            {
+                "day": 1,
+                "title": "抵達仁川",
+                "desc": "入住弘大創意旅店，夜探望遠市場小吃。",
+                "stay": "Hongdae Creative Hostel"
+            },
+            {
+                "day": 2,
+                "title": "弘大街頭藝術",
+                "desc": "探訪弘大塗鴉牆與獨立設計師小店，哥德風咖啡廳下午茶。",
+                "images": [
+                    "/static/images/itineraries/seoul_underground_day2_0.jpg",
+                    "/static/images/itineraries/seoul_underground_day2_1.jpg"
+                ]
+            },
+            {
+                "day": 3,
+                "title": "梨泰院多元文化",
+                "desc": "梨泰院異國料理與Vintage古著店巡禮。",
+                "images": [
+                    "/static/images/itineraries/seoul_underground_day3_0.jpg"
+                ]
+            },
+            {
+                "day": 4,
+                "title": "江南地下樂團",
+                "desc": "參觀獨立音樂Live House，感受韓國搖滾魂。",
+                "stay": "Gangnam Music Hotel"
+            },
+            {
+                "day": 5,
+                "title": "返程",
+                "desc": "明洞最後採購後送機",
+                "stay": null
+            }
+        ]
+    },
+    "bangkok_midnight": {
+        "id": "bangkok_midnight",
+        "title": "曼谷午夜市集狂歡｜5日",
+        "price": "$28,000",
+        "originalPrice": "$33,000",
+        "image": "/static/images/itineraries/bangkok_midnight_main.jpg",
+        "tags": [
+            "曼谷進出",
+            "夜市文化",
+            "泰式搖滾"
+        ],
+        "dates": [
+            "2024/06/20",
+            "2024/07/25",
+            "2024/08/30"
+        ],
+        "description": "曼谷不夜城的瘋狂能量與街頭美食",
+        "days": [
+            {
+                "day": 1,
+                "title": "抵達素萬那普",
+                "desc": "考山路背包客天堂，夜訪Ratchada火車夜市。",
+                "stay": "Khao San Hostel"
+            },
+            {
+                "day": 2,
+                "title": "Chatuchak週末市集",
+                "desc": "全亞洲最大週末市集血拼，復古服飾與手工藝品。",
+                "images": [
+                    "/static/images/itineraries/bangkok_midnight_day2_0.jpg",
+                    "/static/images/itineraries/bangkok_midnight_day2_1.jpg"
+                ]
+            },
+            {
+                "day": 3,
+                "title": "暹羅廣場文青區",
+                "desc": "探訪MBK、Siam Square獨立書店與藝廊。",
+                "images": [
+                    "/static/images/itineraries/bangkok_midnight_day3_0.jpg"
+                ]
+            },
+            {
+                "day": 4,
+                "title": "RCA夜店一條街",
+                "desc": "體驗曼谷最瘋狂的夜生活與電音派對。",
+                "stay": "RCA Party Hotel"
+            },
+            {
+                "day": 5,
+                "title": "返程",
+                "desc": "水上市場早餐後送機",
+                "stay": null
+            }
+        ]
+    },
+    "singapore_future": {
+        "id": "singapore_future",
+        "title": "新加坡未來城市實驗｜5日",
+        "price": "$38,000",
+        "originalPrice": "$44,000",
+        "image": "/static/images/itineraries/singapore_future_main.jpg",
+        "tags": [
+            "新加坡進出",
+            "科技城市",
+            "多元文化"
+        ],
+        "dates": [
+            "2024/06/12",
+            "2024/07/18",
+            "2024/08/22"
+        ],
+        "description": "花園城市的科技奇蹟與多元文化碰撞",
+        "days": [
+            {
+                "day": 1,
+                "title": "抵達樟宜機場",
+                "desc": "濱海灣花園Super Tree夜景，入住Marina Bay設計酒店。",
+                "stay": "Marina Bay Design Hotel"
+            },
+            {
+                "day": 2,
+                "title": "牛車水與小印度",
+                "desc": "探訪唐人街與印度區的文化衝突美學。",
+                "images": [
+                    "/static/images/itineraries/singapore_future_day2_0.jpg",
+                    "/static/images/itineraries/singapore_future_day2_1.jpg"
+                ]
+            },
+            {
+                "day": 3,
+                "title": "烏節路時尚購物",
+                "desc": "ION Orchard與設計師品牌朝聖。",
+                "images": [
+                    "/static/images/itineraries/singapore_future_day3_0.jpg"
+                ]
+            },
+            {
+                "day": 4,
+                "title": "聖淘沙未來樂園",
+                "desc": "環球影城與S.E.A海洋館科技體驗。",
+                "stay": "Sentosa Resort"
+            },
+            {
+                "day": 5,
+                "title": "返程",
+                "desc": "克拉碼頭早午餐後送機",
+                "stay": null
+            }
+        ]
+    },
+    "berlin_techno": {
+        "id": "berlin_techno",
+        "title": "柏林地下電音聖殿｜7日",
+        "price": "$55,000",
+        "originalPrice": "$62,000",
+        "image": "/static/images/itineraries/berlin_techno_main.jpg",
+        "tags": [
+            "柏林進出",
+            "電音文化",
+            "工業廢墟"
+        ],
+        "dates": [
+            "2024/06/18",
+            "2024/07/22",
+            "2024/08/28"
+        ],
+        "description": "柏林地下電音與工業廢墟美學的極致體驗",
+        "days": [
+            {
+                "day": 1,
+                "title": "抵達柏林",
+                "desc": "入住Kreuzberg藝術區旅店，夜訪Berghain前哨站。",
+                "stay": "Kreuzberg Art Hostel"
+            },
+            {
+                "day": 2,
+                "title": "東邊畫廊與廢墟",
+                "desc": "柏林圍牆東邊畫廊，探訪廢棄工業區。",
+                "images": [
+                    "/static/images/itineraries/berlin_techno_day2_0.jpg",
+                    "/static/images/itineraries/berlin_techno_day2_1.jpg"
+                ]
+            },
+            {
+                "day": 3,
+                "title": "Berghain週末馬拉松",
+                "desc": "全球最強Techno俱樂部48小時狂歡。",
+                "stay": "Party Hotel"
+            },
+            {
+                "day": 4,
+                "title": "包浩斯建築巡禮",
+                "desc": "探訪包浩斯博物館與現代主義建築。",
+                "images": [
+                    "/static/images/itineraries/berlin_techno_day4_0.png"
+                ]
+            },
+            {
+                "day": 5,
+                "title": "Teufelsberg廢棄監聽站",
+                "desc": "冷戰時期NSA監聽站廢墟探險。",
+                "images": [
+                    "/static/images/itineraries/berlin_techno_day5_0.png"
+                ]
+            },
+            {
+                "day": 6,
+                "title": "Tresor與工業電音",
+                "desc": "參觀傳奇俱樂部Tresor，感受柏林電音魂。",
+                "stay": "Industrial Loft"
+            },
+            {
+                "day": 7,
+                "title": "返程",
+                "desc": "亞歷山大廣場最後巡禮",
+                "stay": null
+            }
+        ]
+    },
+    "paris_gothic": {
+        "id": "paris_gothic",
+        "title": "巴黎哥德式浪漫｜6日",
+        "price": "$62,000",
+        "originalPrice": "$70,000",
+        "image": "/static/images/itineraries/paris_gothic_main.jpg",
+        "tags": [
+            "巴黎進出",
+            "哥德建築",
+            "暗黑美學"
+        ],
+        "dates": [
+            "2024/06/22",
+            "2024/07/28",
+            "2024/09/15"
+        ],
+        "description": "巴黎聖母院的哥德魅影與暗黑浪漫",
+        "days": [
+            {
+                "day": 1,
+                "title": "抵達戴高樂機場",
+                "desc": "入住瑪黑區精品旅店，夜訪塞納河畔。",
+                "stay": "Le Marais Boutique"
+            },
+            {
+                "day": 2,
+                "title": "聖母院哥德建築",
+                "desc": "巴黎聖母院、聖禮拜堂彩繪玻璃巡禮。",
+                "images": [
+                    "/static/images/itineraries/paris_gothic_day2_0.png",
+                    "https://images.unsplash.com/photo-1585155869333-8e87122ac743?w=400&h=300&fit=crop"
+                ]
+            },
+            {
+                "day": 3,
+                "title": "拉榭茲神父公墓",
+                "desc": "探訪王爾德、蕭邦、Jim Morrison之墓。",
+                "images": [
+                    "https://images.unsplash.com/photo-1588170277033-c9e5e35dc35e?w=400&h=300&fit=crop"
+                ]
+            },
+            {
+                "day": 4,
+                "title": "龐畢度中心當代藝術",
+                "desc": "龐畢度中心與周圍地下藝廊。",
+                "stay": "Pompidou Loft"
+            },
+            {
+                "day": 5,
+                "title": "凡爾賽宮巴洛克奢華",
+                "desc": "凡爾賽宮一日遊，感受法式宮廷美學。",
+                "images": [
+                    "https://images.unsplash.com/photo-1598383639360-c4cb87a54f3f?w=400&h=300&fit=crop"
+                ]
+            },
+            {
+                "day": 6,
+                "title": "返程",
+                "desc": "蒙馬特藝術區最後漫步",
+                "stay": null
+            }
+        ]
+    },
+    "prague_vampire": {
+        "id": "prague_vampire",
+        "title": "布拉格吸血鬼傳說｜6日",
+        "price": "$48,000",
+        "originalPrice": "$55,000",
+        "image": "/static/images/itineraries/prague_vampire_main.jpg",
+        "tags": [
+            "布拉格進出",
+            "吸血鬼",
+            "中世紀"
+        ],
+        "dates": [
+            "2024/06/25",
+            "2024/07/30",
+            "2024/09/10"
+        ],
+        "description": "布拉格中世紀古城的吸血鬼與鍊金術傳說",
+        "days": [
+            {
+                "day": 1,
+                "title": "抵達布拉格",
+                "desc": "入住舊城區哥德旅店，查理大橋夜遊。",
+                "stay": "Old Town Gothic Hotel"
+            },
+            {
+                "day": 2,
+                "title": "布拉格城堡探秘",
+                "desc": "探訪城堡區與黃金巷鍊金術士遺跡。",
+                "images": [
+                    "/static/images/itineraries/prague_vampire_day2_0.jpg",
+                    "/static/images/itineraries/prague_vampire_day2_1.jpg"
+                ]
+            },
+            {
+                "day": 3,
+                "title": "地下墓穴與骨教堂",
+                "desc": "參觀Sedlec人骨教堂，感受死亡美學。",
+                "images": [
+                    "/static/images/itineraries/prague_vampire_day3_0.jpg"
+                ]
+            },
+            {
+                "day": 4,
+                "title": "吸血鬼夜遊",
+                "desc": "專業導遊帶領，探訪布拉格吸血鬼傳說景點。",
+                "stay": "Vampire Theme Hotel"
+            },
+            {
+                "day": 5,
+                "title": "卡夫卡與布拉格文學",
+                "desc": "參觀卡夫卡博物館，漫步文學咖啡廳。",
+                "images": [
+                    "/static/images/itineraries/prague_vampire_day5_0.jpg"
+                ]
+            },
+            {
+                "day": 6,
+                "title": "返程",
+                "desc": "舊城廣場天文鐘最後巡禮",
+                "stay": null
+            }
+        ]
+    },
+    "amsterdam_freedom": {
+        "id": "amsterdam_freedom",
+        "title": "阿姆斯特丹自由之城｜5日",
+        "price": "$52,000",
+        "originalPrice": "$59,000",
+        "image": "/static/images/itineraries/amsterdam_freedom_main.jpg",
+        "tags": [
+            "阿姆斯特丹進出",
+            "自由文化",
+            "運河藝術"
+        ],
+        "dates": [
+            "2024/06/28",
+            "2024/08/05",
+            "2024/09/18"
+        ],
+        "description": "阿姆斯特丹運河與自由文化的獨特魅力",
+        "days": [
+            {
+                "day": 1,
+                "title": "抵達史基浦機場",
+                "desc": "入住運河區精品旅店，自行車遊城。",
+                "stay": "Canal Belt Hotel"
+            },
+            {
+                "day": 2,
+                "title": "梵谷博物館與紅燈區",
+                "desc": "白天藝術，夜晚探訪紅燈區文化。",
+                "images": [
+                    "https://images.unsplash.com/photo-1564399580075-5dfe19c205f5?w=400&h=300&fit=crop",
+                    "https://images.unsplash.com/photo-1580996378580-26775ea88d61?w=400&h=300&fit=crop"
+                ]
+            },
+            {
+                "day": 3,
+                "title": "安妮之家與二戰歷史",
+                "desc": "參觀安妮法蘭克之家，了解二戰歷史。",
+                "images": [
+                    "https://images.unsplash.com/photo-1581888181866-071abf6f6688?w=400&h=300&fit=crop"
+                ]
+            },
+            {
+                "day": 4,
+                "title": "Coffee Shop文化體驗",
+                "desc": "探訪阿姆斯特丹獨特的Coffee Shop文化。",
+                "stay": "Jordaan District Hotel"
+            },
+            {
+                "day": 5,
+                "title": "返程",
+                "desc": "水壩廣場最後採購",
+                "stay": null
+            }
+        ]
+    },
+    "reykjavik_aurora": {
+        "id": "reykjavik_aurora",
+        "title": "雷克雅維克極光追獵｜7日",
+        "price": "$78,000",
+        "originalPrice": "$88,000",
+        "image": "/static/images/itineraries/reykjavik_aurora_main.jpg",
+        "tags": [
+            "冰島環島",
+            "極光",
+            "冰火世界"
+        ],
+        "dates": [
+            "2024/11/15",
+            "2024/12/20",
+            "2025/01/25"
+        ],
+        "description": "冰島極光與冰火世界的終極探險",
+        "days": [
+            {
+                "day": 1,
+                "title": "抵達雷克雅維克",
+                "desc": "入住首都設計旅店，藍湖溫泉放鬆。",
+                "stay": "Reykjavik Design Hotel"
+            },
+            {
+                "day": 2,
+                "title": "金圈經典路線",
+                "desc": "黃金瀑布、間歇泉、國會斷層一日遊。",
+                "images": [
+                    "/static/images/itineraries/reykjavik_aurora_day2_0.jpg",
+                    "/static/images/itineraries/reykjavik_aurora_day2_1.jpg"
+                ]
+            },
+            {
+                "day": 3,
+                "title": "黑沙灘與冰川",
+                "desc": "維克黑沙灘、Skaftafell冰川健行。",
+                "images": [
+                    "/static/images/itineraries/reykjavik_aurora_day3_0.jpg",
+                    "/static/images/itineraries/reykjavik_aurora_day3_1.jpg"
+                ]
+            },
+            {
+                "day": 4,
+                "title": "冰河湖與鑽石沙灘",
+                "desc": "傑古沙龍冰河湖遊船，鑽石沙灘攝影。",
+                "stay": "Jokulsarlon Lodge"
+            },
+            {
+                "day": 5,
+                "title": "極光追獵夜",
+                "desc": "專業導遊帶領，追尋北極光奇景。",
+                "images": [
+                    "/static/images/itineraries/reykjavik_aurora_day5_0.jpg"
+                ]
+            },
+            {
+                "day": 6,
+                "title": "斯奈山半島",
+                "desc": "教會山、黑教堂，感受冰島孤獨美學。",
+                "images": [
+                    "/static/images/itineraries/reykjavik_aurora_day6_0.jpg"
+                ]
+            },
+            {
+                "day": 7,
+                "title": "返程",
+                "desc": "雷克雅維克市區最後巡禮",
+                "stay": null
+            }
+        ]
+    },
+    "nyc_underground": {
+        "id": "nyc_underground",
+        "title": "紐約地下文化聖地｜7日",
+        "price": "$68,000",
+        "originalPrice": "$76,000",
+        "image": "/static/images/itineraries/nyc_underground_main.png",
+        "tags": [
+            "紐約進出",
+            "地下文化",
+            "嘻哈搖滾"
+        ],
+        "dates": [
+            "2024/06/15",
+            "2024/07/20",
+            "2024/08/25"
+        ],
+        "description": "紐約地下音樂與街頭文化的起源地",
+        "days": [
+            {
+                "day": 1,
+                "title": "抵達JFK機場",
+                "desc": "入住布魯克林Williamsburg藝術區。",
+                "stay": "Brooklyn Loft Hotel"
+            },
+            {
+                "day": 2,
+                "title": "布魯克林塗鴉藝術",
+                "desc": "Bushwick塗鴉區與獨立藝廊巡禮。",
+                "images": [
+                    "/static/images/itineraries/nyc_underground_day2_0.png",
+                    "/static/images/itineraries/nyc_underground_day2_1.png"
+                ]
+            },
+            {
+                "day": 3,
+                "title": "CBGB龐克聖地",
+                "desc": "探訪CBGB遺址，East Village龐克文化。",
+                "images": [
+                    "/static/images/itineraries/nyc_underground_day3_0.jpg"
+                ]
+            },
+            {
+                "day": 4,
+                "title": "哈林區爵士與嘻哈",
+                "desc": "Apollo劇院，探索爵士與嘻哈起源。",
+                "stay": "Harlem Jazz Hotel"
+            },
+            {
+                "day": 5,
+                "title": "MoMA與當代藝術",
+                "desc": "現代藝術博物館，感受前衛藝術。",
+                "images": [
+                    "/static/images/itineraries/nyc_underground_day5_0.png"
+                ]
+            },
+            {
+                "day": 6,
+                "title": "布魯克林音樂廳",
+                "desc": "參加Brooklyn Steel或Music Hall演唱會。",
+                "stay": "Brooklyn Music Hotel"
+            },
+            {
+                "day": 7,
+                "title": "返程",
+                "desc": "Times Square最後巡禮",
+                "stay": null
+            }
+        ]
+    },
+    "la_hollywood": {
+        "id": "la_hollywood",
+        "title": "洛杉磯好萊塢夢工廠｜6日",
+        "price": "$58,000",
+        "originalPrice": "$66,000",
+        "image": "/static/images/itineraries/la_hollywood_main.jpg",
+        "tags": [
+            "洛杉磯進出",
+            "好萊塢",
+            "海灘文化"
+        ],
+        "dates": [
+            "2024/06/18",
+            "2024/07/22",
+            "2024/08/28"
+        ],
+        "description": "洛杉磯電影夢與加州陽光海灘",
+        "days": [
+            {
+                "day": 1,
+                "title": "抵達LAX",
+                "desc": "入住Santa Monica海灘旅店，66號公路終點朝聖。",
+                "stay": "Santa Monica Beach Hotel"
+            },
+            {
+                "day": 2,
+                "title": "好萊塢星光大道",
+                "desc": "Walk of Fame、TCL中國戲院，環球影城。",
+                "images": [
+                    "https://images.unsplash.com/photo-1598677594208-6ab5ee1318f6?w=400&h=300&fit=crop",
+                    "https://images.unsplash.com/photo-1542887800-faca92994b50?w=400&h=300&fit=crop"
+                ]
+            },
+            {
+                "day": 3,
+                "title": "Venice Beach嬉皮文化",
+                "desc": "Venice運河、Muscle Beach，街頭藝人表演。",
+                "images": [
+                    "/static/images/itineraries/la_hollywood_day3_0.jpg"
+                ]
+            },
+            {
+                "day": 4,
+                "title": "比佛利山莊奢華",
+                "desc": "Rodeo Drive精品街，Getty Center藝術館。",
+                "stay": "Beverly Hills Hotel"
+            },
+            {
+                "day": 5,
+                "title": "格里斐斯天文台",
+                "desc": "白天天文台，夜晚俯瞰洛杉磯夜景。",
+                "images": [
+                    "https://images.unsplash.com/photo-1556388275-94700d1d19ca?w=400&h=300&fit=crop"
+                ]
+            },
+            {
+                "day": 6,
+                "title": "返程",
+                "desc": "The Grove最後採購",
+                "stay": null
+            }
+        ]
+    },
+    "mexico_dead": {
+        "id": "mexico_dead",
+        "title": "墨西哥亡靈節狂歡｜7日",
+        "price": "$52,000",
+        "originalPrice": "$60,000",
+        "image": "/static/images/itineraries/mexico_dead_main.jpg",
+        "tags": [
+            "墨西哥城進出",
+            "亡靈節",
+            "瑪雅文化"
+        ],
+        "dates": [
+            "2024/10/28",
+            "2024/11/01",
+            "2024/11/02"
+        ],
+        "description": "墨西哥亡靈節的生死美學與瑪雅古文明",
+        "days": [
+            {
+                "day": 1,
+                "title": "抵達墨西哥城",
+                "desc": "入住歷史中心旅店，憲法廣場夜遊。",
+                "stay": "Centro Historico Hotel"
+            },
+            {
+                "day": 2,
+                "title": "特奧蒂瓦坎金字塔",
+                "desc": "日月金字塔朝聖，感受古文明力量。",
+                "images": [
+                    "https://images.unsplash.com/photo-1518653825499-3fe6f8f6c5e7?w=400&h=300&fit=crop",
+                    "https://images.unsplash.com/photo-1512813389649-c81eb7f28e4d?w=400&h=300&fit=crop"
+                ]
+            },
+            {
+                "day": 3,
+                "title": "芙烈達博物館",
+                "desc": "探訪Frida Kahlo藍屋，了解墨西哥藝術。",
+                "images": [
+                    "/static/images/itineraries/mexico_dead_day3_0.jpg"
+                ]
+            },
+            {
+                "day": 4,
+                "title": "亡靈節慶典準備",
+                "desc": "製作骷髏面具，學習傳統祭壇布置。",
+                "stay": "Day of the Dead Hotel"
+            },
+            {
+                "day": 5,
+                "title": "亡靈節大遊行",
+                "desc": "參加墨西哥城亡靈節大遊行，夜訪墓園。",
+                "images": [
+                    "https://images.unsplash.com/photo-1601925228039-66b5df0b6c91?w=400&h=300&fit=crop",
+                    "https://images.unsplash.com/photo-1589807722530-55f31ac0a3a8?w=400&h=300&fit=crop"
+                ]
+            },
+            {
+                "day": 6,
+                "title": "瓜納華托彩色小鎮",
+                "desc": "探訪彩色山城與地下墓穴。",
+                "images": [
+                    "/static/images/itineraries/mexico_dead_day6_0.jpg"
+                ]
+            },
+            {
+                "day": 7,
+                "title": "返程",
+                "desc": "索卡洛廣場最後巡禮",
+                "stay": null
+            }
+        ]
+    },
+    "rio_carnival": {
+        "id": "rio_carnival",
+        "title": "里約熱內盧嘉年華｜7日",
+        "price": "$72,000",
+        "originalPrice": "$82,000",
+        "image": "/static/images/itineraries/rio_carnival_main.jpg",
+        "tags": [
+            "里約進出",
+            "嘉年華",
+            "森巴文化"
+        ],
+        "dates": [
+            "2025/02/22",
+            "2025/02/24",
+            "2025/02/26"
+        ],
+        "description": "里約嘉年華森巴狂歡與海灘文化",
+        "days": [
+            {
+                "day": 1,
+                "title": "抵達里約",
+                "desc": "入住Copacabana海灘旅店，感受熱情氛圍。",
+                "stay": "Copacabana Beach Hotel"
+            },
+            {
+                "day": 2,
+                "title": "基督像與麵包山",
+                "desc": "登山朝聖基督像，纜車上麵包山看夜景。",
+                "images": [
+                    "https://images.unsplash.com/photo-1544989164-fb69cf6e38f4?w=400&h=300&fit=crop",
+                    "https://images.unsplash.com/photo-1516834474-6c12bbed7a0f?w=400&h=300&fit=crop"
+                ]
+            },
+            {
+                "day": 3,
+                "title": "森巴舞學校參訪",
+                "desc": "參觀森巴學校排練，學習森巴舞步。",
+                "images": [
+                    "https://images.unsplash.com/photo-1516490701444-a4f0f1fa4f5c?w=400&h=300&fit=crop"
+                ]
+            },
+            {
+                "day": 4,
+                "title": "嘉年華大遊行",
+                "desc": "森巴大道觀賞世界級遊行表演。",
+                "stay": "Sambadrome VIP Hotel"
+            },
+            {
+                "day": 5,
+                "title": "街頭嘉年華派對",
+                "desc": "加入街頭Blocos派對，徹夜狂歡。",
+                "images": [
+                    "https://images.unsplash.com/photo-1516635537465-18be610760cf?w=400&h=300&fit=crop"
+                ]
+            },
+            {
+                "day": 6,
+                "title": "Ipanema海灘放鬆",
+                "desc": "海灘放鬆，享受Caipirinha雞尾酒。",
+                "images": [
+                    "/static/images/itineraries/rio_carnival_day6_0.jpg"
+                ]
+            },
+            {
+                "day": 7,
+                "title": "返程",
+                "desc": "Lapa階梯最後巡禮",
+                "stay": null
+            }
+        ]
+    },
+    "sydney_opera": {
+        "id": "sydney_opera",
+        "title": "雪梨歌劇院藝術之旅｜6日",
+        "price": "$58,000",
+        "originalPrice": "$66,000",
+        "image": "/static/images/itineraries/sydney_opera_main.jpg",
+        "tags": [
+            "雪梨進出",
+            "藝術文化",
+            "海港城市"
+        ],
+        "dates": [
+            "2024/06/20",
+            "2024/07/25",
+            "2024/08/30"
+        ],
+        "description": "雪梨歌劇院與海港大橋的經典魅力",
+        "days": [
+            {
+                "day": 1,
+                "title": "抵達雪梨",
+                "desc": "入住環形碼頭旅店，夜遊Harbour Bridge。",
+                "stay": "Circular Quay Hotel"
+            },
+            {
+                "day": 2,
+                "title": "歌劇院與皇家植物園",
+                "desc": "歌劇院導覽，漫步皇家植物園。",
+                "images": [
+                    "/static/images/itineraries/sydney_opera_day2_0.jpg",
+                    "/static/images/itineraries/sydney_opera_day2_1.jpg"
+                ]
+            },
+            {
+                "day": 3,
+                "title": "Bondi Beach衝浪",
+                "desc": "Bondi to Coogee海岸步道，衝浪體驗。",
+                "images": [
+                    "/static/images/itineraries/sydney_opera_day3_0.jpg"
+                ]
+            },
+            {
+                "day": 4,
+                "title": "The Rocks歷史區",
+                "desc": "探訪雪梨最古老街區與週末市集。",
+                "stay": "The Rocks Heritage Hotel"
+            },
+            {
+                "day": 5,
+                "title": "Blue Mountains藍山",
+                "desc": "三姐妹岩、Scenic World纜車一日遊。",
+                "images": [
+                    "/static/images/itineraries/sydney_opera_day5_0.jpg"
+                ]
+            },
+            {
+                "day": 6,
+                "title": "返程",
+                "desc": "Darling Harbour最後採購",
+                "stay": null
+            }
+        ]
+    },
+    "auckland_maori": {
+        "id": "auckland_maori",
+        "title": "奧克蘭毛利文化探索｜6日",
+        "price": "$52,000",
+        "originalPrice": "$60,000",
+        "image": "/static/images/itineraries/auckland_maori_main.jpg",
+        "tags": [
+            "奧克蘭進出",
+            "毛利文化",
+            "魔戒場景"
+        ],
+        "dates": [
+            "2024/06/22",
+            "2024/07/28",
+            "2024/09/05"
+        ],
+        "description": "紐西蘭毛利文化與中土世界的奇幻之旅",
+        "days": [
+            {
+                "day": 1,
+                "title": "抵達奧克蘭",
+                "desc": "入住市中心旅店，天空塔夜景。",
+                "stay": "Auckland Central Hotel"
+            },
+            {
+                "day": 2,
+                "title": "懷托摩螢火蟲洞",
+                "desc": "地下螢火蟲洞奇景，哈比村一日遊。",
+                "images": [
+                    "/static/images/itineraries/auckland_maori_day2_0.jpg",
+                    "/static/images/itineraries/auckland_maori_day2_1.jpg"
+                ]
+            },
+            {
+                "day": 3,
+                "title": "羅托魯瓦地熱奇觀",
+                "desc": "間歇泉、泥漿池，毛利文化村體驗。",
+                "images": [
+                    "https://images.unsplash.com/photo-1550461180-6c6ccd07c7cb?w=400&h=300&fit=crop",
+                    "/static/images/itineraries/auckland_maori_day3_1.jpg"
+                ]
+            },
+            {
+                "day": 4,
+                "title": "毛利Hangi大餐",
+                "desc": "觀賞Haka戰舞，享用傳統Hangi地爐大餐。",
+                "stay": "Rotorua Maori Hotel"
+            },
+            {
+                "day": 5,
+                "title": "Waiheke Island酒莊",
+                "desc": "搭渡輪至Waiheke島，品酒賞景。",
+                "images": [
+                    "/static/images/itineraries/auckland_maori_day5_0.jpg"
+                ]
+            },
+            {
+                "day": 6,
+                "title": "返程",
+                "desc": "Queen Street最後採購",
+                "stay": null
+            }
+        ]
+    },
+    "cairo_pyramid": {
+        "id": "cairo_pyramid",
+        "title": "開羅金字塔神秘之旅｜7日",
+        "price": "$48,000",
+        "originalPrice": "$56,000",
+        "image": "/static/images/itineraries/cairo_pyramid_main.jpg",
+        "tags": [
+            "開羅進出",
+            "古埃及",
+            "金字塔"
+        ],
+        "dates": [
+            "2024/10/15",
+            "2024/11/20",
+            "2024/12/18"
+        ],
+        "description": "古埃及法老的神秘詛咒與金字塔之謎",
+        "days": [
+            {
+                "day": 1,
+                "title": "抵達開羅",
+                "desc": "入住尼羅河畔旅店，Khan el-Khalili市集。",
+                "stay": "Nile View Hotel"
+            },
+            {
+                "day": 2,
+                "title": "吉薩金字塔群",
+                "desc": "大金字塔、人面獅身像，進入金字塔內部。",
+                "images": [
+                    "/static/images/itineraries/cairo_pyramid_day2_0.jpg",
+                    "/static/images/itineraries/cairo_pyramid_day2_1.jpg"
+                ]
+            },
+            {
+                "day": 3,
+                "title": "埃及博物館",
+                "desc": "圖坦卡門黃金面具，木乃伊室參觀。",
+                "images": [
+                    "/static/images/itineraries/cairo_pyramid_day3_0.jpg",
+                    "/static/images/itineraries/cairo_pyramid_day3_1.jpg"
+                ]
+            },
+            {
+                "day": 4,
+                "title": "薩卡拉階梯金字塔",
+                "desc": "最古老的階梯金字塔，Memphis古城遺址。",
+                "images": [
+                    "/static/images/itineraries/cairo_pyramid_day4_0.jpg"
+                ]
+            },
+            {
+                "day": 5,
+                "title": "亞歷山大港",
+                "desc": "地中海明珠，Bibliotheca Alexandrina新圖書館。",
+                "stay": "Alexandria Sea Hotel"
+            },
+            {
+                "day": 6,
+                "title": "尼羅河遊船晚宴",
+                "desc": "搭乘尼羅河遊船，觀賞肚皮舞表演。",
+                "images": [
+                    "/static/images/itineraries/cairo_pyramid_day6_0.jpg"
+                ]
+            },
+            {
+                "day": 7,
+                "title": "返程",
+                "desc": "Coptic Cairo基督教區巡禮",
+                "stay": null
+            }
+        ]
+    },
+    "dubai_luxury": {
+        "id": "dubai_luxury",
+        "title": "杜拜奢華沙漠綠洲｜6日",
+        "price": "$88,000",
+        "originalPrice": "$98,000",
+        "image": "/static/images/itineraries/dubai_luxury_main.jpg",
+        "tags": [
+            "杜拜進出",
+            "奢華體驗",
+            "沙漠冒險"
+        ],
+        "dates": [
+            "2024/11/10",
+            "2024/12/15",
+            "2025/01/20"
+        ],
+        "description": "杜拜極致奢華與沙漠冒險的完美結合",
+        "days": [
+            {
+                "day": 1,
+                "title": "抵達杜拜",
+                "desc": "入住Burj Al Arab帆船酒店，體驗極致奢華。",
+                "stay": "Burj Al Arab"
+            },
+            {
+                "day": 2,
+                "title": "哈里發塔與Dubai Mall",
+                "desc": "登上世界最高樓，Dubai Mall血拼。",
+                "images": [
+                    "/static/images/itineraries/dubai_luxury_day2_0.jpg",
+                    "/static/images/itineraries/dubai_luxury_day2_1.jpg"
+                ]
+            },
+            {
+                "day": 3,
+                "title": "棕櫚島與亞特蘭提斯",
+                "desc": "棕櫚島單軌電車，Atlantis水族館。",
+                "images": [
+                    "/static/images/itineraries/dubai_luxury_day3_0.jpg"
+                ]
+            },
+            {
+                "day": 4,
+                "title": "沙漠Safari冒險",
+                "desc": "4x4衝沙、騎駱駝、貝都因營地BBQ晚餐。",
+                "stay": "Desert Camp"
+            },
+            {
+                "day": 5,
+                "title": "杜拜黃金市集",
+                "desc": "黃金市集、香料市集，傳統Abra渡船。",
+                "images": [
+                    "/static/images/itineraries/dubai_luxury_day5_0.jpg"
+                ]
+            },
+            {
+                "day": 6,
+                "title": "返程",
+                "desc": "Dubai Marina最後巡禮",
+                "stay": null
+            }
+        ]
+    },
+    "marrakech_medina": {
+        "id": "marrakech_medina",
+        "title": "馬拉喀什千夜迷宮｜7日",
+        "price": "$42,000",
+        "originalPrice": "$50,000",
+        "image": "/static/images/itineraries/marrakech_medina_main.jpg",
+        "tags": [
+            "馬拉喀什進出",
+            "摩洛哥",
+            "沙漠古城"
+        ],
+        "dates": [
+            "2024/09/15",
+            "2024/10/20",
+            "2024/11/25"
+        ],
+        "description": "摩洛哥馬拉喀什古城迷宮與撒哈拉沙漠",
+        "days": [
+            {
+                "day": 1,
+                "title": "抵達馬拉喀什",
+                "desc": "入住Riad傳統庭院旅店，Jemaa el-Fnaa廣場。",
+                "stay": "Traditional Riad"
+            },
+            {
+                "day": 2,
+                "title": "Medina老城迷宮",
+                "desc": "探索錯綜複雜的Souk市集與工匠街區。",
+                "images": [
+                    "https://images.unsplash.com/photo-1516561050659-cbffcce79103?w=400&h=300&fit=crop",
+                    "/static/images/itineraries/marrakech_medina_day2_1.jpg"
+                ]
+            },
+            {
+                "day": 3,
+                "title": "巴伊亞宮與花園",
+                "desc": "參觀巴伊亞宮、Majorelle花園。",
+                "images": [
+                    "/static/images/itineraries/marrakech_medina_day3_0.jpg",
+                    "https://images.unsplash.com/photo-1548070169-df3755293cd3?w=400&h=300&fit=crop"
+                ]
+            },
+            {
+                "day": 4,
+                "title": "撒哈拉沙漠三日遊Day1",
+                "desc": "翻越阿特拉斯山脈，抵達沙漠邊緣。",
+                "stay": "Desert Lodge"
+            },
+            {
+                "day": 5,
+                "title": "撒哈拉沙漠Day2",
+                "desc": "騎駱駝進入沙漠，帳篷露營看星空。",
+                "images": [
+                    "/static/images/itineraries/marrakech_medina_day5_0.jpg",
+                    "/static/images/itineraries/marrakech_medina_day5_1.jpg"
+                ]
+            },
+            {
+                "day": 6,
+                "title": "撒哈拉沙漠Day3返回",
+                "desc": "日出沙丘，返回馬拉喀什。",
+                "stay": "Marrakech Riad"
+            },
+            {
+                "day": 7,
+                "title": "返程",
+                "desc": "Bahia宮最後巡禮",
+                "stay": null
+            }
+        ]
+    },
+    "capetown_safari": {
+        "id": "capetown_safari",
+        "title": "開普敦野生動物狩獵｜8日",
+        "price": "$72,000",
+        "originalPrice": "$82,000",
+        "image": "/static/images/itineraries/capetown_safari_main.jpg",
+        "tags": [
+            "開普敦進出",
+            "Safari",
+            "非洲五霸"
+        ],
+        "dates": [
+            "2024/07/10",
+            "2024/08/15",
+            "2024/09/20"
+        ],
+        "description": "南非開普敦與Kruger國家公園Safari冒險",
+        "days": [
+            {
+                "day": 1,
+                "title": "抵達開普敦",
+                "desc": "入住V&A Waterfront旅店，桌山纜車夜景。",
+                "stay": "V&A Waterfront Hotel"
+            },
+            {
+                "day": 2,
+                "title": "好望角與企鵝灘",
+                "desc": "非洲最西南端好望角，Boulders Beach企鵝。",
+                "images": [
+                    "/static/images/itineraries/capetown_safari_day2_0.jpg",
+                    "https://images.unsplash.com/photo-1598430686974-a06e665d2a0f?w=400&h=300&fit=crop"
+                ]
+            },
+            {
+                "day": 3,
+                "title": "Stellenbosch酒莊",
+                "desc": "開普敦酒鄉品酒，荷蘭風格小鎮漫步。",
+                "images": [
+                    "/static/images/itineraries/capetown_safari_day3_0.jpg"
+                ]
+            },
+            {
+                "day": 4,
+                "title": "飛往Kruger國家公園",
+                "desc": "抵達野生動物保護區，傍晚Safari。",
+                "stay": "Safari Lodge"
+            },
+            {
+                "day": 5,
+                "title": "Safari Day 1 - 非洲五霸",
+                "desc": "清晨與傍晚兩次Safari，尋找獅子、大象、犀牛、水牛、花豹。",
+                "images": [
+                    "/static/images/itineraries/capetown_safari_day5_0.jpg",
+                    "/static/images/itineraries/capetown_safari_day5_1.jpg"
+                ]
+            },
+            {
+                "day": 6,
+                "title": "Safari Day 2 - 深入叢林",
+                "desc": "全日Safari，Bush Walk叢林徒步體驗。",
+                "images": [
+                    "/static/images/itineraries/capetown_safari_day6_0.jpg"
+                ]
+            },
+            {
+                "day": 7,
+                "title": "返回開普敦",
+                "desc": "Bo-Kaap彩色房子區，Long Street酒吧。",
+                "stay": "Cape Town City Hotel"
+            },
+            {
+                "day": 8,
+                "title": "返程",
+                "desc": "最後採購紀念品",
+                "stay": null
+            }
+        ]
+    }
+}
