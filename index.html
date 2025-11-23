@@ -1,0 +1,1121 @@
+{% extends "base.html" %}
+{% block content %}
+<main id="app-container" class="flex-grow relative">
+    <script>
+        window.itineraries = {{ itineraries | tojson | safe }};
+    </script>
+
+    <!-- 1. INDEX PAGE -->
+    <section id="home" class="page-section active">
+        <!-- Hero Section -->
+        <div class="relative h-[500px] bg-gray-900">
+            <!-- Abstract Kuromi BG -->
+            <div
+                class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40 mix-blend-luminosity">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-[#3E204F]/40 to-transparent"></div>
+
+            <div class="relative container mx-auto px-4 h-full flex flex-col justify-center z-10">
+                <h1 class="text-5xl md:text-6xl font-black text-white mb-4 drop-shadow-lg">
+                    帶你 <span class="text-k-pink italic">叛逆</span> 去旅行
+                </h1>
+                <p class="text-gray-300 text-xl mb-8 max-w-2xl">不走尋常路，這是一場屬於黑色幽默與粉色浪漫的冒險。</p>
+            </div>
+
+            <!-- Search Widget (Floating) -->
+            <div class="absolute -bottom-24 left-0 right-0 px-4 z-20">
+                <div class="container mx-auto bg-[#222] border border-[#3E204F] rounded-xl shadow-2xl p-6 max-w-4xl">
+                    <!-- Tabs -->
+                    <div class="flex space-x-2 mb-4 border-b border-gray-700 pb-2">
+                        <button onclick="switchSearchTab('flight')" id="tab-flight"
+                            class="search-tab active px-4 py-2 rounded-t-lg font-bold text-sm flex items-center gap-2 transition-colors">
+                            <i class="fa-solid fa-plane"></i> 機票
+                        </button>
+                        <button onclick="switchSearchTab('hotel')" id="tab-hotel"
+                            class="search-tab text-gray-400 hover:text-white px-4 py-2 rounded-t-lg font-bold text-sm flex items-center gap-2 transition-colors">
+                            <i class="fa-solid fa-hotel"></i> 訂房
+                        </button>
+                        <button onclick="switchSearchTab('itinerary')" id="tab-itinerary"
+                            class="search-tab text-gray-400 hover:text-white px-4 py-2 rounded-t-lg font-bold text-sm flex items-center gap-2 transition-colors">
+                            <i class="fa-solid fa-suitcase"></i> 團體
+                        </button>
+                    </div>
+                    <!-- Search Form -->
+                    <div id="flight-search-form" class="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
+                        <div class="flex flex-col">
+                            <label class="text-xs text-gray-400 mb-1">出發地</label>
+                            <select id="flight-origin"
+                                class="w-full p-2 rounded bg-[#333] border border-gray-600 focus:border-k-pink text-white">
+                                <option value="TPE" selected>台灣 - 台北 (TPE)</option>
+                                <option value="KHH">台灣 - 高雄 (KHH)</option>
+                                <option value="NRT">日本 - 東京 (NRT)</option>
+                                <option value="KIX">日本 - 大阪 (KIX)</option>
+                                <option value="ICN">韓國 - 首爾 (ICN)</option>
+                                <option value="PUS">韓國 - 釜山 (PUS)</option>
+                                <option value="HKG">香港 (HKG)</option>
+                                <option value="MFM">澳門 (MFM)</option>
+                                <option value="BKK">泰國 - 曼谷 (BKK)</option>
+                                <option value="SIN">新加坡 (SIN)</option>
+                                <option value="KUL">馬來西亞 - 吉隆坡 (KUL)</option>
+                                <option value="SGN">越南 - 胡志明市 (SGN)</option>
+                                <option value="MNL">菲律賓 - 馬尼拉 (MNL)</option>
+                                <option value="LAX">美國 - 洛杉磯 (LAX)</option>
+                                <option value="JFK">美國 - 紐約 (JFK)</option>
+                                <option value="LHR">英國 - 倫敦 (LHR)</option>
+                                <option value="CDG">法國 - 巴黎 (CDG)</option>
+                                <option value="FRA">德國 - 法蘭克福 (FRA)</option>
+                                <option value="SYD">澳洲 - 雪梨 (SYD)</option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="text-xs text-gray-400 mb-1">目的地</label>
+                            <select id="flight-dest"
+                                class="w-full p-2 rounded bg-[#333] border border-gray-600 focus:border-k-pink text-white">
+                                <option value="" disabled selected>選擇目的地</option>
+                                <option value="TPE">台灣 - 台北 (TPE)</option>
+                                <option value="KHH">台灣 - 高雄 (KHH)</option>
+                                <option value="NRT">日本 - 東京 (NRT)</option>
+                                <option value="KIX">日本 - 大阪 (KIX)</option>
+                                <option value="ICN">韓國 - 首爾 (ICN)</option>
+                                <option value="PUS">韓國 - 釜山 (PUS)</option>
+                                <option value="HKG">香港 (HKG)</option>
+                                <option value="MFM">澳門 (MFM)</option>
+                                <option value="BKK">泰國 - 曼谷 (BKK)</option>
+                                <option value="SIN">新加坡 (SIN)</option>
+                                <option value="KUL">馬來西亞 - 吉隆坡 (KUL)</option>
+                                <option value="SGN">越南 - 胡志明市 (SGN)</option>
+                                <option value="MNL">菲律賓 - 馬尼拉 (MNL)</option>
+                                <option value="LAX">美國 - 洛杉磯 (LAX)</option>
+                                <option value="JFK">美國 - 紐約 (JFK)</option>
+                                <option value="LHR">英國 - 倫敦 (LHR)</option>
+                                <option value="CDG">法國 - 巴黎 (CDG)</option>
+                                <option value="FRA">德國 - 法蘭克福 (FRA)</option>
+                                <option value="SYD">澳洲 - 雪梨 (SYD)</option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="text-xs text-gray-400 mb-1">去程日期</label>
+                            <input id="flight-date" type="date"
+                                class="w-full p-2 rounded bg-[#333] border border-gray-600 text-white">
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="text-xs text-gray-400 mb-1">航空公司 (選填)</label>
+                            <select id="flight-airline"
+                                class="w-full p-2 rounded bg-[#333] border border-gray-600 text-white">
+                                <option value="all">所有航空公司</option>
+                                <option value="Kuromi Air">Kuromi Air - 叛逆搖滾</option>
+                                <option value="Melody Airways">Melody Airways - 粉紅夢幻</option>
+                                <option value="Badtz-Maru Jet">Badtz-Maru Jet - 極簡帥氣</option>
+                                <option value="Cinnamoroll Sky">Cinnamoroll Sky - 雲朵溫柔</option>
+                                <option value="Pompompurin Express">Pompompurin Express - 悠閒布丁</option>
+                                <option value="Little Twin Stars Galaxy">Little Twin Stars Galaxy - 星空奇幻</option>
+                                <option value="Keroppi Frog Air">Keroppi Frog Air - 生態環保</option>
+                                <option value="Gudetama Lazy Flight">Gudetama Lazy Flight - 慵懶舒適</option>
+                            </select>
+                        </div>
+                        <div class="flex items-end">
+                            <button onclick="searchFlights()"
+                                class="w-full bg-k-pink hover:bg-pink-600 text-white font-bold py-2 px-4 rounded transition">
+                                搜尋機票
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Hotel Search Form (Initially Hidden) -->
+                    <div id="hotel-search-form" class="hidden grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
+                        <div class="flex flex-col">
+                            <label class="text-xs text-gray-400 mb-1">國家</label>
+                            <select id="hotel-country"
+                                class="w-full p-2 rounded bg-[#333] border border-gray-600 text-white"
+                                onchange="updateHotelOptions()">
+                                <option value="">請選擇國家</option>
+                                <!-- Asia -->
+                                <option value="Japan">日本 Japan</option>
+                                <option value="Korea">韓國 Korea</option>
+                                <option value="Thailand">泰國 Thailand</option>
+                                <option value="Singapore">新加坡 Singapore</option>
+                                <option value="Taiwan">台灣 Taiwan</option>
+                                <!-- Europe -->
+                                <option value="Germany">德國 Germany</option>
+                                <option value="France">法國 France</option>
+                                <option value="Czech Republic">捷克 Czech Republic</option>
+                                <option value="Netherlands">荷蘭 Netherlands</option>
+                                <option value="Iceland">冰島 Iceland</option>
+                                <option value="UK">英國 UK</option>
+                                <option value="Spain">西班牙 Spain</option>
+                                <option value="Italy">義大利 Italy</option>
+                                <!-- Americas -->
+                                <option value="USA">美國 USA</option>
+                                <option value="Mexico">墨西哥 Mexico</option>
+                                <option value="Brazil">巴西 Brazil</option>
+                                <option value="Argentina">阿根廷 Argentina</option>
+                                <!-- Oceania -->
+                                <option value="Australia">澳洲 Australia</option>
+                                <option value="New Zealand">紐西蘭 New Zealand</option>
+                                <!-- Africa & Middle East -->
+                                <option value="Egypt">埃及 Egypt</option>
+                                <option value="UAE">阿聯酋 UAE</option>
+                                <option value="Morocco">摩洛哥 Morocco</option>
+                                <option value="South Africa">南非 South Africa</option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="text-xs text-gray-400 mb-1">飯店</label>
+                            <select id="hotel-name"
+                                class="w-full p-2 rounded bg-[#333] border border-gray-600 text-white">
+                                <option value="">請先選擇國家</option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="text-xs text-gray-400 mb-1">房型</label>
+                            <select id="hotel-room-type"
+                                class="w-full p-2 rounded bg-[#333] border border-gray-600 text-white">
+                                <option value="standard">標準房</option>
+                                <option value="deluxe">豪華房</option>
+                                <option value="suite">行政套房</option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col justify-center space-y-2">
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" id="hotel-bathtub"
+                                    class="form-checkbox text-k-pink rounded bg-[#333] border-gray-600">
+                                <span class="text-sm text-gray-300">有浴缸</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="checkbox" id="hotel-breakfast"
+                                    class="form-checkbox text-k-pink rounded bg-[#333] border-gray-600">
+                                <span class="text-sm text-gray-300">附早餐</span>
+                            </label>
+                        </div>
+                        <div class="flex items-end">
+                            <button onclick="searchHotels()"
+                                class="w-full bg-k-pink hover:bg-pink-600 text-white font-bold py-2 px-4 rounded transition">
+                                搜尋訂房
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Itinerary Search Form (Initially Hidden) -->
+                    <div id="itinerary-search-form" class="hidden grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <div class="flex flex-col">
+                            <label class="text-xs text-gray-400 mb-1">出發地 (機場代碼)</label>
+                            <select id="itinerary-origin"
+                                class="w-full p-2 rounded bg-[#333] border border-gray-600 focus:border-k-pink">
+                                <option value="TPE">TPE 台北 (桃園)</option>
+                                <option value="TSA">TSA 台北 (松山)</option>
+                                <option value="KHH">KHH 高雄</option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="text-xs text-gray-400 mb-1">目的地 (輸入代碼/城市)</label>
+                            <input id="itinerary-dest" type="text"
+                                class="w-full p-2 rounded bg-[#333] border border-gray-600"
+                                placeholder="例如: NRT (東京), KIX (大阪)">
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="text-xs text-gray-400 mb-1">去程日期</label>
+                            <input id="itinerary-date" type="date"
+                                class="w-full p-2 rounded bg-[#333] border border-gray-600">
+                        </div>
+                        <div class="flex items-end">
+                            <button onclick="searchItinerariesFromHome()"
+                                class="w-full btn-primary py-3 rounded-lg font-bold text-lg shadow-[0_4px_0_#9c3e68] active:shadow-none active:translate-y-[4px] transition-all">
+                                <i class="fa-solid fa-plane-departure mr-2"></i> 搜尋行程
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Oracle FAB Button -->
+        <div class="oracle-fab" onclick="openOracle()" title="庫洛米占卜">
+            <i class="fa-solid fa-crystal-ball"></i>
+        </div>
+
+        <!-- Spacer for Widget -->
+        <div class="h-32 bg-[#1A1A1A]"></div>
+
+        <!-- Icon Grid -->
+        <div class="container mx-auto px-4 mb-16">
+            <div class="grid grid-cols-4 md:grid-cols-8 gap-4 text-center">
+                <div class="group cursor-pointer" onclick="filterByRegion('japan')">
+                    <div
+                        class="w-14 h-14 mx-auto bg-[#2A2A2A] rounded-2xl flex items-center justify-center mb-2 group-hover:bg-k-pink transition border border-gray-700">
+                        <i class="fa-solid fa-torii-gate text-xl text-gray-400 group-hover:text-white"></i>
+                    </div>
+                    <span class="text-xs text-gray-400 group-hover:text-white">日本</span>
+                </div>
+                <div class="group cursor-pointer" onclick="filterByRegion('korea')">
+                    <div
+                        class="w-14 h-14 mx-auto bg-[#2A2A2A] rounded-2xl flex items-center justify-center mb-2 group-hover:bg-k-pink transition border border-gray-700">
+                        <i class="fa-solid fa-bowl-food text-xl text-gray-400 group-hover:text-white"></i>
+                    </div>
+                    <span class="text-xs text-gray-400 group-hover:text-white">韓國</span>
+                </div>
+                <div class="group cursor-pointer" onclick="filterByRegion('southeast-asia')">
+                    <div
+                        class="w-14 h-14 mx-auto bg-[#2A2A2A] rounded-2xl flex items-center justify-center mb-2 group-hover:bg-k-pink transition border border-gray-700">
+                        <i class="fa-solid fa-umbrella-beach text-xl text-gray-400 group-hover:text-white"></i>
+                    </div>
+                    <span class="text-xs text-gray-400 group-hover:text-white">東南亞</span>
+                </div>
+                <div class="group cursor-pointer" onclick="filterByRegion('europe')">
+                    <div
+                        class="w-14 h-14 mx-auto bg-[#2A2A2A] rounded-2xl flex items-center justify-center mb-2 group-hover:bg-k-pink transition border border-gray-700">
+                        <i class="fa-solid fa-landmark text-xl text-gray-400 group-hover:text-white"></i>
+                    </div>
+                    <span class="text-xs text-gray-400 group-hover:text-white">歐洲</span>
+                </div>
+                <!-- Add more icons as needed -->
+            </div>
+        </div>
+
+        <!-- Hot Deals -->
+        <div class="container mx-auto px-4 mb-20">
+            <div class="flex items-end justify-between mb-8">
+                <div>
+                    <h2 class="text-2xl font-bold text-white mb-1"><i class="fa-solid fa-fire text-k-pink mr-2"></i>熱門推薦
+                    </h2>
+                    <p class="text-gray-400 text-sm">手慢無！庫洛米精選暗黑系旅程</p>
+                </div>
+                <a href="#" class="text-k-pink text-sm hover:underline">查看更多 <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {% for id, data in itineraries.items() %}
+                <!-- Card: {{ data.title }} -->
+                <div class="bg-[#222] rounded-xl overflow-hidden card-hover cursor-pointer fade-in-up"
+                    onclick="showDetail('{{ id }}')">
+                    <div class="relative h-48">
+                        <img src="{{ data.image }}" alt="{{ data.title }}" class="w-full h-full object-cover opacity-80"
+                            loading="lazy">
+                        <div class="wishlist-heart" onclick="event.stopPropagation(); toggleFavorite('{{ id }}')"
+                            data-id="{{ id }}">
+                            <i class="fa-regular fa-heart text-white text-xl"></i>
+                        </div>
+                        {% if '熱銷' in data.tags or '獨家' in data.tags %}
+                        <div class="absolute top-2 right-2 bg-k-pink text-white text-xs px-2 py-1 rounded font-bold">
+                            {{ '熱銷' if '熱銷' in data.tags else '獨家' }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="p-4">
+                        <div class="flex gap-2 mb-2">
+                            {% for tag in data.tags[:2] %}
+                            <span class="text-[10px] border border-[#9B72AA] text-[#9B72AA] px-1 rounded">{{ tag
+                                }}</span>
+                            {% endfor %}
+                        </div>
+                        <h3 class="font-bold text-lg mb-4 line-clamp-2">{{ data.title }}</h3>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-500 line-through text-sm">{{ data.originalPrice }}</span>
+                            <span class="text-k-pink font-bold text-xl">{{ data.price }} <span
+                                    class="text-xs text-gray-400">起</span></span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. SEARCH RESULT PAGE -->
+    <section id="search" class="page-section">
+        <div class="bg-[#222] py-4 border-b border-[#3E204F]">
+            <div class="container mx-auto px-4">
+                <p class="text-gray-400 text-sm"><a href="#" onclick="router('home')" class="hover:text-k-pink">首頁</a> >
+                    <span class="text-white">日本旅遊</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 py-8 flex flex-col md:flex-row gap-8">
+            <!-- Sidebar Filters -->
+            <aside class="w-full md:w-1/4">
+                <div class="bg-[#222] rounded-lg p-6 border border-gray-700 sticky top-20">
+                    <h3 class="font-bold text-lg mb-4 flex items-center"><i
+                            class="fa-solid fa-filter mr-2 text-k-pink"></i> 篩選條件</h3>
+
+                    <!-- Filter Group -->
+                    <div class="mb-6">
+                        <h4 class="text-sm font-bold text-gray-300 mb-3">價格範圍</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center text-sm text-gray-400 cursor-pointer hover:text-white">
+                                <input type="checkbox" class="mr-2 accent-pink-500 filter-price" value="low">
+                                $20,000 以下
+                            </label>
+                            <label class="flex items-center text-sm text-gray-400 cursor-pointer hover:text-white">
+                                <input type="checkbox" class="mr-2 accent-pink-500 filter-price" value="mid" checked>
+                                $20,000 - $40,000
+                            </label>
+                            <label class="flex items-center text-sm text-gray-400 cursor-pointer hover:text-white">
+                                <input type="checkbox" class="mr-2 accent-pink-500 filter-price" value="high">
+                                $40,000 以上
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="text-sm font-bold text-gray-300 mb-3">旅遊主題</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center text-sm text-gray-400 cursor-pointer hover:text-white">
+                                <input type="checkbox" class="mr-2 accent-pink-500 filter-theme" value="shopping"
+                                    checked> 潮流購物
+                            </label>
+                            <label class="flex items-center text-sm text-gray-400 cursor-pointer hover:text-white">
+                                <input type="checkbox" class="mr-2 accent-pink-500 filter-theme" value="history">
+                                歷史文化
+                            </label>
+                            <label class="flex items-center text-sm text-gray-400 cursor-pointer hover:text-white">
+                                <input type="checkbox" class="mr-2 accent-pink-500 filter-theme" value="theme-park">
+                                主題樂園
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="w-full btn-primary py-2 rounded text-sm" onclick="applyFilters()">套用篩選</button>
+                </div>
+            </aside>
+
+            <!-- Product List -->
+            <div class="w-full md:w-3/4 space-y-4">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 id="search-results-title" class="text-xl font-bold">搜尋結果：共 3 筆行程</h2>
+                    <select id="sort-select" class="bg-[#222] border border-gray-600 text-sm p-1 rounded"
+                        onchange="applyFilters()">
+                        <option value="price-asc">價格由低到高</option>
+                        <option value="price-desc">價格由高到低</option>
+                        <option value="popularity">熱門程度</option>
+                    </select>
+                </div>
+
+                <!-- Dynamic Results Container -->
+                <div id="search-results-container">
+                    <!-- Default static content will be replaced by JS if searching flights -->
+
+                    <!-- List Item 1: Tokyo -->
+                    <div class="bg-[#222] rounded-lg overflow-hidden flex flex-col md:flex-row border border-transparent hover:border-[#9B72AA] transition group cursor-pointer mb-4"
+                        onclick="showDetail('tokyo_neon')">
+                        <div class="w-full md:w-1/3 h-48 md:h-auto relative">
+                            <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=1994&auto=format&fit=crop"
+                                class="w-full h-full object-cover">
+                            <div
+                                class="absolute top-0 left-0 bg-k-pink text-white text-xs px-2 py-1 rounded-br-lg font-bold">
+                                熱銷</div>
+                        </div>
+                        <div class="p-4 w-full md:w-2/3 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold mb-2 group-hover:text-k-pink transition">
+                                    東京澀谷街頭龐克巡禮｜原宿系時尚探險・主題咖啡廳</h3>
+                                <div class="flex flex-wrap gap-2 mb-2">
+                                    <span class="text-xs bg-[#333] text-gray-300 px-2 py-1 rounded">成田進出</span>
+                                    <span class="text-xs bg-[#333] text-gray-300 px-2 py-1 rounded">市區住宿</span>
+                                </div>
+                                <p class="text-sm text-gray-400 line-clamp-2">
+                                    深入探索東京次文化聖地，拜訪庫洛米風格小店，入住新宿精選飯店，體驗最道地的日本潮流文化。</p>
+                            </div>
+                            <div class="flex justify-between items-end mt-4">
+                                <div class="text-sm text-gray-500">可售日期: 11/25, 12/02, 12/10</div>
+                                <div class="text-right">
+                                    <div class="text-gray-500 line-through text-sm">$28,900</div>
+                                    <div class="text-k-pink font-bold text-2xl">$24,500</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- List Item 2: Osaka -->
+                    <div class="bg-[#222] rounded-lg overflow-hidden flex flex-col md:flex-row border border-transparent hover:border-[#9B72AA] transition group cursor-pointer mb-4"
+                        onclick="showDetail('osaka_food')">
+                        <div class="w-full md:w-1/3 h-48 md:h-auto relative">
+                            <img src="https://images.unsplash.com/photo-1524024926029-b31379629e36?q=80&w=1932&auto=format&fit=crop"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4 w-full md:w-2/3 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold mb-2 group-hover:text-k-pink transition">
+                                    大阪黑門市場美食與環球影城｜庫洛米特別企劃</h3>
+                                <div class="flex flex-wrap gap-2 mb-2">
+                                    <span class="text-xs bg-[#333] text-gray-300 px-2 py-1 rounded">USJ門票</span>
+                                    <span class="text-xs bg-[#333] text-gray-300 px-2 py-1 rounded">含快速通關</span>
+                                </div>
+                                <p class="text-sm text-gray-400 line-clamp-2">全日暢遊大阪環球影城，尋找限定周邊商品，晚間前往道頓堀享受美食饗宴。</p>
+                            </div>
+                            <div class="flex justify-between items-end mt-4">
+                                <div class="text-sm text-gray-500">可售日期: 12/05, 12/12, 12/20</div>
+                                <div class="text-right">
+                                    <div class="text-gray-500 line-through text-sm">$35,000</div>
+                                    <div class="text-k-pink font-bold text-2xl">$32,800</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- List Item 3: Seoul -->
+                    <div class="bg-[#222] rounded-lg overflow-hidden flex flex-col md:flex-row border border-transparent hover:border-[#9B72AA] transition group cursor-pointer mb-4"
+                        onclick="showDetail('seoul_underground')">
+                        <div class="w-full md:w-1/3 h-48 md:h-auto relative">
+                            <img src="https://images.unsplash.com/photo-1538485399081-7191377e8241?q=80&w=1974&auto=format&fit=crop"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4 w-full md:w-2/3 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold mb-2 group-hover:text-k-pink transition">
+                                    首爾弘大暗黑時尚｜哥德式咖啡廳・地下樂團巡演</h3>
+                                <div class="flex flex-wrap gap-2 mb-2">
+                                    <span class="text-xs bg-[#333] text-gray-300 px-2 py-1 rounded">仁川進出</span>
+                                    <span class="text-xs bg-[#333] text-gray-300 px-2 py-1 rounded">弘大住宿</span>
+                                </div>
+                                <p class="text-sm text-gray-400 line-clamp-2">探索首爾年輕人的次文化中心，造訪風格獨特的咖啡廳與Live
+                                    House，感受韓流之外的地下脈動。</p>
+                            </div>
+                            <div class="flex justify-between items-end mt-4">
+                                <div class="text-sm text-gray-500">可售日期: 01/10, 01/17, 01/24</div>
+                                <div class="text-right">
+                                    <div class="text-gray-500 line-through text-sm">$22,000</div>
+                                    <div class="text-k-pink font-bold text-2xl">$18,900</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- List Item 4: Bangkok -->
+                    <div class="bg-[#222] rounded-lg overflow-hidden flex flex-col md:flex-row border border-transparent hover:border-[#9B72AA] transition group cursor-pointer mb-4"
+                        onclick="showDetail('bangkok_midnight')">
+                        <div class="w-full md:w-1/3 h-48 md:h-auto relative">
+                            <img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?q=80&w=1950&auto=format&fit=crop"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4 w-full md:w-2/3 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold mb-2 group-hover:text-k-pink transition">
+                                    曼谷午夜市集狂歡｜高空酒吧・霓虹夜生活</h3>
+                                <div class="flex flex-wrap gap-2 mb-2">
+                                    <span class="text-xs bg-[#333] text-gray-300 px-2 py-1 rounded">BKK進出</span>
+                                    <span class="text-xs bg-[#333] text-gray-300 px-2 py-1 rounded">五星飯店</span>
+                                </div>
+                                <p class="text-sm text-gray-400 line-clamp-2">體驗曼谷不夜城的魅力，從熱鬧的夜市到奢華的高空酒吧，享受泰式按摩與美食。
+                                </p>
+                            </div>
+                            <div class="flex justify-between items-end mt-4">
+                                <div class="text-sm text-gray-500">可售日期: 02/05, 02/12, 02/19</div>
+                                <div class="text-right">
+                                    <div class="text-gray-500 line-through text-sm">$18,000</div>
+                                    <div class="text-k-pink font-bold text-2xl">$15,500</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- List Item 5: Berlin -->
+                    <div class="bg-[#222] rounded-lg overflow-hidden flex flex-col md:flex-row border border-transparent hover:border-[#9B72AA] transition group cursor-pointer mb-4"
+                        onclick="showDetail('berlin_techno')">
+                        <div class="w-full md:w-1/3 h-48 md:h-auto relative">
+                            <img src="https://images.unsplash.com/photo-1599946347371-68eb71b16afc?q=80&w=2070&auto=format&fit=crop"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4 w-full md:w-2/3 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold mb-2 group-hover:text-k-pink transition">
+                                    柏林地下電音聖殿｜廢墟塗鴉藝術・Techno 派對</h3>
+                                <div class="flex flex-wrap gap-2 mb-2">
+                                    <span class="text-xs bg-[#333] text-gray-300 px-2 py-1 rounded">柏林進出</span>
+                                    <span class="text-xs bg-[#333] text-gray-300 px-2 py-1 rounded">特色旅宿</span>
+                                </div>
+                                <p class="text-sm text-gray-400 line-clamp-2">朝聖世界Techno首都，探索冷戰歷史遺跡與現代街頭藝術的完美融合。</p>
+                            </div>
+                            <div class="flex justify-between items-end mt-4">
+                                <div class="text-sm text-gray-500">可售日期: 03/10, 03/20, 03/30</div>
+                                <div class="text-right">
+                                    <div class="text-gray-500 line-through text-sm">$60,000</div>
+                                    <div class="text-k-pink font-bold text-2xl">$55,000</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-sm text-gray-500">可售日期: 01/15, 01/20</div>
+                    <div class="text-right">
+                        <div class="text-gray-500 line-through text-sm">$35,000</div>
+                        <div class="text-k-pink font-bold text-2xl">$32,800</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        </div>
+    </section>
+
+
+
+    <!-- 3. PRODUCT DETAIL PAGE -->
+    <!-- 7. FLIGHT RESULTS PAGE -->
+    <section id="flight-results" class="page-section">
+        <div class="bg-[#222] py-4 border-b border-[#3E204F]">
+            <div class="container mx-auto px-4">
+                <p class="text-gray-400 text-sm"><a href="#" onclick="router('home')" class="hover:text-k-pink">首頁</a> >
+                    <span class="text-white">機票搜尋結果</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 py-8">
+            <h2 class="text-3xl font-bold mb-6" id="flight-results-title">搜尋結果</h2>
+            <div id="flight-list" class="space-y-4">
+                <!-- Dynamic Flight Cards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FLIGHT BOOKING PAGE -->
+    <section id="flight-booking" class="page-section">
+        <div class="bg-[#222] py-4 border-b border-[#3E204F]">
+            <div class="container mx-auto px-4">
+                <p class="text-gray-400 text-sm"><a href="#" onclick="router('home')" class="hover:text-k-pink">首頁</a> >
+                    <a href="#" onclick="router('flight-results')" class="hover:text-k-pink">機票搜尋</a> > <span
+                        class="text-white">機位選擇</span>
+                </p>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Left: Selection Area -->
+                <div class="w-full lg:w-2/3">
+                    <!-- Step 1: Cabin -->
+                    <div class="bg-[#222] rounded-xl p-6 mb-6 border border-gray-700">
+                        <h3 class="text-xl font-bold mb-4 flex items-center"><i
+                                class="fa-solid fa-couch text-k-pink mr-3"></i> 選擇艙等</h3>
+                        <div class="grid grid-cols-3 gap-4">
+                            <button onclick="selectCabin('economy')" id="btn-economy"
+                                class="cabin-btn p-4 rounded border border-gray-600 hover:border-k-pink text-center active">
+                                <div class="font-bold">經濟艙</div>
+                                <div class="text-sm text-gray-400" id="price-economy"></div>
+                            </button>
+                            <button onclick="selectCabin('business')" id="btn-business"
+                                class="cabin-btn p-4 rounded border border-gray-600 hover:border-k-pink text-center">
+                                <div class="font-bold">商務艙</div>
+                                <div class="text-sm text-gray-400" id="price-business"></div>
+                            </button>
+                            <button onclick="selectCabin('first')" id="btn-first"
+                                class="cabin-btn p-4 rounded border border-gray-600 hover:border-k-pink text-center">
+                                <div class="font-bold">頭等艙</div>
+                                <div class="text-sm text-gray-400" id="price-first"></div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Seat Map -->
+                    <div class="bg-[#222] rounded-xl p-6 mb-6 border border-gray-700">
+                        <h3 class="text-xl font-bold mb-4 flex items-center"><i
+                                class="fa-solid fa-border-all text-k-pink mr-3"></i> 選擇座位</h3>
+                        <div class="flex justify-center mb-4 gap-4 text-sm">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-gray-600 rounded mr-2"></div> 已佔用
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-[#333] border border-gray-500 rounded mr-2"></div> 可選
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-k-pink rounded mr-2"></div> 已選
+                            </div>
+                        </div>
+                        <div id="seat-map" class="flex flex-col gap-2 items-center overflow-x-auto pb-4">
+                            <!-- Dynamic Seat Grid -->
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Meal -->
+                    <div class="bg-[#222] rounded-xl p-6 mb-6 border border-gray-700">
+                        <h3 class="text-xl font-bold mb-4 flex items-center"><i
+                                class="fa-solid fa-utensils text-k-pink mr-3"></i> 選擇餐點</h3>
+                        <select id="flight-meal" class="w-full p-3 rounded bg-[#333] border border-gray-600 text-white">
+                            <option value="standard">標準餐</option>
+                            <option value="vegetarian">素食餐 (蛋奶素)</option>
+                            <option value="vegan">全素餐</option>
+                            <option value="halal">清真餐</option>
+                            <option value="child">兒童餐</option>
+                            <option value="fruit">水果餐</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Right: Summary -->
+                <div class="w-full lg:w-1/3">
+                    <div class="bg-[#222] rounded-xl p-6 sticky top-24 border border-[#3E204F] shadow-2xl">
+                        <h3 class="text-xl font-bold mb-4">行程摘要</h3>
+                        <div id="booking-summary-content" class="space-y-4 mb-6 text-sm text-gray-300">
+                            <!-- Dynamic Content -->
+                        </div>
+                        <div class="border-t border-gray-700 pt-4 mb-6">
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold">總金額</span>
+                                <span id="flight-total-price" class="text-3xl font-black text-k-pink"></span>
+                            </div>
+                        </div>
+                        <button onclick="confirmFlightBooking()"
+                            class="w-full btn-primary py-4 rounded-lg font-bold text-xl mb-2">確認訂位</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. HOTEL RESULTS PAGE -->
+    <section id="hotel-results" class="page-section">
+        <div class="bg-[#222] py-4 border-b border-[#3E204F]">
+            <div class="container mx-auto px-4">
+                <p class="text-gray-400 text-sm"><a href="#" onclick="router('home')" class="hover:text-k-pink">首頁</a> >
+                    <span class="text-white">訂房搜尋結果</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 py-8">
+            <h2 class="text-3xl font-bold mb-6" id="hotel-results-title">搜尋結果</h2>
+            <div id="hotel-list" class="space-y-4">
+                <!-- Dynamic Hotel Cards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. HOTEL BOOKING PAGE -->
+    <section id="hotel-booking" class="page-section">
+        <div class="bg-[#222] py-4 border-b border-[#3E204F]">
+            <div class="container mx-auto px-4">
+                <p class="text-gray-400 text-sm"><a href="#" onclick="router('home')" class="hover:text-k-pink">首頁</a> >
+                    <a href="#" onclick="router('hotel-results')" class="hover:text-k-pink">訂房搜尋</a> > <span
+                        class="text-white">確認訂房</span>
+                </p>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Left: Details -->
+                <div class="w-full lg:w-2/3">
+                    <div class="bg-[#222] rounded-xl p-6 mb-6 border border-gray-700">
+                        <h3 class="text-xl font-bold mb-4 text-k-pink" id="booking-hotel-name"></h3>
+                        <div class="flex gap-4 mb-4 text-sm text-gray-400">
+                            <span id="booking-hotel-country"></span>
+                            <span class="text-gray-600">|</span>
+                            <span id="booking-room-type"></span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div class="bg-[#333] p-3 rounded">
+                                <div class="text-xs text-gray-500 mb-1">入住日期</div>
+                                <div class="font-bold">2023/12/20</div>
+                            </div>
+                            <div class="bg-[#333] p-3 rounded">
+                                <div class="text-xs text-gray-500 mb-1">退房日期</div>
+                                <div class="font-bold">2023/12/24 (4晚)</div>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2 text-sm text-gray-300">
+                                <i class="fa-solid fa-check text-k-pink"></i> <span id="booking-has-bathtub"></span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-gray-300">
+                                <i class="fa-solid fa-check text-k-pink"></i> <span id="booking-has-breakfast"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Guest Info -->
+                    <div class="bg-[#222] rounded-xl p-6 mb-6 border border-gray-700">
+                        <h3 class="text-xl font-bold mb-4">住客資料</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-1">姓名</label>
+                                <input type="text" class="w-full p-2 rounded bg-[#333] border border-gray-600"
+                                    value="庫洛米">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-1">電話</label>
+                                <input type="tel" class="w-full p-2 rounded bg-[#333] border border-gray-600"
+                                    value="0912-345-678">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Summary -->
+                <div class="w-full lg:w-1/3">
+                    <div class="bg-[#222] rounded-xl p-6 sticky top-24 border border-[#3E204F] shadow-2xl">
+                        <h3 class="text-xl font-bold mb-4">費用明細</h3>
+                        <div class="space-y-3 mb-6 text-sm text-gray-300">
+                            <div class="flex justify-between">
+                                <span>房費 (4晚)</span>
+                                <span id="booking-room-price"></span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>稅金 & 服務費</span>
+                                <span>$2,500</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-700 pt-4 mb-6">
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold">總金額</span>
+                                <span id="booking-total-price" class="text-3xl font-black text-k-pink"></span>
+                            </div>
+                        </div>
+                        <button onclick="confirmHotelBooking()"
+                            class="w-full btn-primary py-4 rounded-lg font-bold text-xl mb-2">確認訂房</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. PRODUCT DETAIL PAGE -->
+    <section id="detail" class="page-section">
+        <!-- Breadcrumb -->
+        <div class="bg-[#222] py-4 border-b border-[#3E204F]">
+            <div class="container mx-auto px-4">
+                <p class="text-gray-400 text-sm"><a href="#" onclick="router('home')" class="hover:text-k-pink">首頁</a> >
+                    <a href="#" onclick="router('search')" class="hover:text-k-pink">日本旅遊</a> > <span
+                        class="text-white">東京龐克巡禮</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Left Content -->
+                <div class="w-full lg:w-2/3">
+                    <h1 class="text-3xl font-bold mb-4 text-white leading-tight">東京澀谷街頭龐克巡禮｜原宿系時尚探險・主題咖啡廳・5日
+                    </h1>
+                    <div class="flex gap-3 mb-6">
+                        <span class="bg-k-purple text-white px-3 py-1 rounded text-sm">無購物</span>
+                        <span class="bg-gray-700 text-white px-3 py-1 rounded text-sm">保證出團</span>
+                        <span class="bg-gray-700 text-white px-3 py-1 rounded text-sm">桃園出發</span>
+                    </div>
+
+                    <!-- Main Image -->
+                    <div class="rounded-xl overflow-hidden mb-8 h-[400px]">
+                        <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=1994&auto=format&fit=crop"
+                            class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Tabs -->
+                    <div class="border-b border-gray-700 mb-6">
+                        <button class="px-6 py-3 text-k-pink border-b-2 border-k-pink font-bold">行程特色</button>
+                        <button class="px-6 py-3 text-gray-400 hover:text-white">每日行程</button>
+                        <button class="px-6 py-3 text-gray-400 hover:text-white">費用說明</button>
+                    </div>
+
+                    <!-- Itinerary -->
+                    <div
+                        class="space-y-8 relative before:absolute before:left-[19px] before:top-2 before:h-full before:w-0.5 before:bg-gray-700">
+
+                        <div class="relative pl-12">
+                            <div
+                                class="absolute left-0 top-1 w-10 h-10 bg-k-pink rounded-full flex items-center justify-center font-bold text-white border-4 border-[#1A1A1A] z-10">
+                                1</div>
+                            <h3 class="text-xl font-bold text-k-accent-purple mb-2">Day 1: 台北 → 東京成田空港 → 新宿飯店
+                                Check-in</h3>
+                            <div class="bg-[#222] p-4 rounded-lg text-gray-300">
+                                <p class="mb-2">集合於桃園國際機場，搭乘豪華客機飛往日本首都－東京。</p>
+                                <ul class="list-disc list-inside text-sm text-gray-400">
+                                    <li>餐食：機上精緻套餐 / 方便遊玩敬請自理</li>
+                                    <li>住宿：Shinjuku Prince Hotel 或同級</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="relative pl-12">
+                            <div
+                                class="absolute left-0 top-1 w-10 h-10 bg-[#333] rounded-full flex items-center justify-center font-bold text-white border-4 border-[#1A1A1A] z-10">
+                                2</div>
+                            <h3 class="text-xl font-bold text-white mb-2">Day 2: 原宿竹下通探險 → 庫洛米主題咖啡廳 → 澀谷十字路口
+                            </h3>
+                            <div class="bg-[#222] p-4 rounded-lg text-gray-300">
+                                <p class="mb-2">今日前往年輕人的時尚聖地原宿，尋找最酷炫的龐克配件。</p>
+                                <div class="mt-2 grid grid-cols-2 gap-2">
+                                    <img src="https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?q=80&w=2036&auto=format&fit=crop"
+                                        class="rounded h-24 w-full object-cover">
+                                    <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92a805?q=80&w=2070&auto=format&fit=crop"
+                                        class="rounded h-24 w-full object-cover">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- More days would go here -->
+                    </div>
+                </div>
+
+                <!-- Right Sticky Booking -->
+                <div class="w-full lg:w-1/3">
+                    <div class="bg-[#222] rounded-xl p-6 sticky top-24 border border-[#3E204F] shadow-2xl">
+                        <h3 class="text-xl font-bold mb-4">選擇出發日期</h3>
+                        <div class="mb-4">
+                            <select class="w-full p-3 rounded bg-[#333] border border-gray-600">
+                                <option>2023/11/25 (五) - $24,500</option>
+                                <option>2023/12/02 (五) - $25,500</option>
+                                <option>2023/12/10 (六) - $26,900</option>
+                            </select>
+                        </div>
+
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-gray-400">成人</span>
+                            <div class="flex items-center gap-3">
+                                <button class="w-8 h-8 rounded-full bg-[#444] hover:bg-gray-500">-</button>
+                                <span>2</span>
+                                <button class="w-8 h-8 rounded-full bg-[#444] hover:bg-gray-500">+</button>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="text-gray-400">兒童</span>
+                            <div class="flex items-center gap-3">
+                                <button class="w-8 h-8 rounded-full bg-[#444] hover:bg-gray-500">-</button>
+                                <span>0</span>
+                                <button class="w-8 h-8 rounded-full bg-[#444] hover:bg-gray-500">+</button>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-gray-700 pt-4 mb-6">
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold">總金額</span>
+                                <span class="text-3xl font-black text-k-pink">$49,000</span>
+                            </div>
+                        </div>
+
+                        <button onclick="router('checkout')"
+                            class="w-full btn-primary py-4 rounded-lg font-bold text-xl mb-2">立即預訂</button>
+                        <p class="text-xs text-center text-gray-500"><i
+                                class="fa-solid fa-check-circle text-green-500"></i> 即時確認機位</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. CHECKOUT PAGE -->
+    <section id="checkout" class="page-section">
+        <!-- Empty Cart State -->
+        <div id="empty-cart" class="container mx-auto px-4 py-16 max-w-3xl text-center hidden">
+            <div class="mb-8">
+                <i class="fa-solid fa-shopping-cart text-6xl text-gray-600 mb-4"></i>
+                <h2 class="text-3xl font-bold mb-2">購物車是空的</h2>
+                <p class="text-gray-400">還沒有選擇任何行程、機票或飯店</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                <button onclick="router('home'); switchSearchTab('flight')"
+                    class="bg-[#222] hover:bg-[#333] border border-gray-700 hover:border-k-pink p-6 rounded-xl transition">
+                    <i class="fa-solid fa-plane text-3xl text-k-pink mb-3"></i>
+                    <h3 class="font-bold mb-2">尋找機票</h3>
+                    <p class="text-sm text-gray-400">探索龐克風格航班</p>
+                </button>
+                <button onclick="router('home'); switchSearchTab('hotel')"
+                    class="bg-[#222] hover:bg-[#333] border border-gray-700 hover:border-k-pink p-6 rounded-xl transition">
+                    <i class="fa-solid fa-hotel text-3xl text-k-pink mb-3"></i>
+                    <h3 class="font-bold mb-2">預訂飯店</h3>
+                    <p class="text-sm text-gray-400">找尋獨特住宿</p>
+                </button>
+                <button onclick="router('search')"
+                    class="bg-[#222] hover:bg-[#333] border border-gray-700 hover:border-k-pink p-6 rounded-xl transition">
+                    <i class="fa-solid fa-users text-3xl text-k-pink mb-3"></i>
+                    <h3 class="font-bold mb-2">團體行程</h3>
+                    <p class="text-sm text-gray-400">叛逆之旅等你來</p>
+                </button>
+            </div>
+
+            <button onclick="router('home')" class="btn-primary px-8 py-3 rounded-lg font-bold">
+                <i class="fa-solid fa-home mr-2"></i>返回首頁
+            </button>
+        </div>
+
+        <!-- Checkout Content (Hidden by default) -->
+        <div id="checkout-content" class="container mx-auto px-4 py-8 max-w-4xl hidden">
+            <h1 class="text-3xl font-bold mb-8 text-center">訂單結帳 <i class="fa-solid fa-pen-nib text-k-pink"></i>
+            </h1>
+
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Form -->
+                <div class="w-full md:w-2/3 space-y-6">
+                    <!-- Order Info -->
+                    <div class="bg-[#222] p-6 rounded-lg border-l-4 border-k-pink">
+                        <h3 class="font-bold text-xl mb-4">訂購人資料</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-1">姓名</label>
+                                <input type="text" id="checkout-name" class="w-full p-2 rounded bg-[#333]" value="庫洛米">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-1">手機號碼</label>
+                                <input type="tel" id="checkout-phone" class="w-full p-2 rounded bg-[#333]"
+                                    value="0912-345-678">
+                            </div>
+                            <div class="col-span-2">
+                                <label class="block text-sm text-gray-400 mb-1">電子信箱</label>
+                                <input type="email" id="checkout-email" class="w-full p-2 rounded bg-[#333]"
+                                    value="kuromi@example.com">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment -->
+                    <div class="bg-[#222] p-6 rounded-lg">
+                        <h3 class="font-bold text-xl mb-4">付款方式</h3>
+                        <div class="space-y-3">
+                            <label
+                                class="flex items-center p-3 border border-gray-700 rounded cursor-pointer hover:border-k-pink">
+                                <input type="radio" name="payment" class="mr-3 accent-pink-500" checked>
+                                <span>信用卡一次付清</span> <i class="fa-brands fa-cc-visa ml-auto text-xl text-gray-400"></i>
+                            </label>
+                            <label
+                                class="flex items-center p-3 border border-gray-700 rounded cursor-pointer hover:border-k-pink">
+                                <input type="radio" name="payment" class="mr-3 accent-pink-500">
+                                <span>LINE Pay</span> <i
+                                    class="fa-solid fa-comment-dollar ml-auto text-xl text-green-500"></i>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="w-full btn-primary py-4 rounded-lg font-bold text-xl mt-4"
+                        onclick="processPayment()">確認付款</button>
+                </div>
+
+                <!-- Summary -->
+                <div class="w-full md:w-1/3">
+                    <div class="bg-[#2A2A2A] p-6 rounded-lg">
+                        <h3 class="font-bold text-white mb-4 border-b border-gray-600 pb-2">訂單明細</h3>
+                        <div id="order-summary">
+                            <!-- Dynamic content will be inserted here -->
+                        </div>
+                        <div class="border-t border-gray-600 pt-4 flex justify-between items-center">
+                            <span class="font-bold">總計</span>
+                            <span id="order-total" class="text-2xl font-black text-k-pink">$0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. LOGIN PAGE (Modal Style) -->
+    <section id="login" class="page-section">
+        <div class="min-h-[80vh] flex items-center justify-center px-4">
+            <div
+                class="bg-[#222] border-2 border-[#3E204F] p-8 rounded-2xl shadow-2xl max-w-md w-full relative overflow-hidden">
+                <!-- Deco -->
+                <div class="absolute -top-10 -right-10 text-9xl text-[#3E204F] opacity-20 transform rotate-12">
+                    <i class="fa-solid fa-skull"></i>
+                </div>
+
+                <div class="text-center mb-8">
+                    <div
+                        class="w-16 h-16 bg-k-pink rounded-full flex items-center justify-center text-white text-2xl font-bold border-2 border-white mx-auto mb-4">
+                        <i class="fa-solid fa-user-astronaut"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white">加入骷髏軍團</h2>
+                    <p class="text-gray-400 text-sm">登入以解鎖更多叛逆行程</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <input type="text" placeholder="帳號 / Email"
+                            class="w-full p-3 rounded bg-[#1A1A1A] border border-gray-600 focus:border-k-pink text-white">
+                    </div>
+                    <div>
+                        <input type="password" placeholder="密碼"
+                            class="w-full p-3 rounded bg-[#1A1A1A] border border-gray-600 focus:border-k-pink text-white">
+                    </div>
+                    <button class="w-full btn-primary py-3 rounded font-bold" onclick="router('home')">登入</button>
+                    <div class="text-center text-sm text-gray-500 mt-4">
+                        還沒加入？ <a href="#" class="text-k-pink hover:underline">立即註冊</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAYMENT SUCCESS PAGE -->
+    <section id="payment-success" class="page-section">
+        <div class="container mx-auto px-4 py-16 max-w-3xl">
+            <div class="text-center mb-12">
+                <div
+                    class="w-24 h-24 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
+                    <i class="fa-solid fa-check text-white text-5xl"></i>
+                </div>
+                <h1 class="text-4xl font-bold mb-4">付款成功！</h1>
+                <p class="text-xl text-gray-400">庫洛米期待與你一起叛逆去旅行！</p>
+            </div>
+
+            <div class="bg-[#222] rounded-xl p-8 border border-gray-700 mb-8">
+                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="fa-solid fa-ticket text-k-pink mr-3"></i> 訂單資訊
+                </h2>
+
+                <div class="space-y-4" id="success-booking-details">
+                    <!-- Populated by JavaScript -->
+                </div>
+
+                <div class="border-t border-gray-700 mt-6 pt-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-gray-400">訂單編號</span>
+                        <span class="font-bold" id="success-order-number"></span>
+                    </div>
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-gray-400">付款時間</span>
+                        <span id="success-payment-time"></span>
+                    </div>
+                    <div class="flex justify-between items-center text-2xl font-bold mt-4">
+                        <span>總金額</span>
+                        <span class="text-k-pink" id="success-total-amount"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-[#2A2A2A] rounded-xl p-6 mb-8">
+                <h3 class="font-bold mb-4 flex items-center">
+                    <i class="fa-solid fa-info-circle text-blue-400 mr-2"></i> 重要提醒
+                </h3>
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li><i class="fa-solid fa-envelope text-k-pink mr-2"></i> 確認信已發送至您的電子信箱</li>
+                    <li><i class="fa-solid fa-calendar-check text-k-pink mr-2"></i> 請於出發前7天完成護照驗證</li>
+                    <li><i class="fa-solid fa-phone text-k-pink mr-2"></i> 如有問題請聯繫客服：0800-666-888</li>
+                </ul>
+            </div>
+
+            <div class="flex gap-4">
+                <button onclick="router('home')"
+                    class="flex-1 bg-[#333] hover:bg-[#444] text-white font-bold py-4 rounded-lg transition">
+                    <i class="fa-solid fa-home mr-2"></i> 返回首頁
+                </button>
+                <button onclick="router('search')" class="flex-1 btn-primary py-4 rounded-lg font-bold">
+                    <i class="fa-solid fa-search mr-2"></i> 繼續探索
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FAVORITES PAGE -->
+    <section id="favorites" class="page-section">
+        <div class="bg-[#222] py-4 border-b border-[#3E204F]">
+            <div class="container mx-auto px-4">
+                <p class="text-gray-400 text-sm"><a href="#" onclick="router('home')" class="hover:text-k-pink">首頁</a> >
+                    <span class="text-white">我的收藏</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 py-12">
+            <h1 class="text-4xl font-bold mb-8 flex items-center">
+                <i class="fa-solid fa-heart text-k-pink mr-3"></i> 我的收藏
+            </h1>
+
+            <!-- Empty State -->
+            <div id="favorites-empty" class="text-center py-20 hidden">
+                <i class="fa-regular fa-heart text-6xl text-gray-600 mb-4"></i>
+                <h2 class="text-2xl font-bold text-gray-400 mb-2">還沒有收藏的行程</h2>
+                <p class="text-gray-500 mb-6">快去找找你喜歡的叛逆之旅吧！</p>
+                <button onclick="router('search')" class="btn-primary px-6 py-3 rounded-lg">瀏覽行程</button>
+            </div>
+
+            <!-- Favorites Grid -->
+            <div id="favorites-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </section>
+
+</main>
+{% endblock %}
